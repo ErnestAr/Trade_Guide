@@ -1,0 +1,25 @@
+*{
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#navbar {
+    height: fit-content
+}
+
+div {
+    height: 300px;
+}
+
+a {
+    height: 30px;
+}
+
+h3 {
+    height: 30px;
+}
+
+p {
+    height: 30px;
+}
