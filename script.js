@@ -59,11 +59,28 @@ function changeToStock (event) {
         
     }
      //Analia could you put your fetch function call for stock news here
+    fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "cc1be2c279msh0c79bca34154d17p122150jsn9ba23118deaf",
+            "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+        }
+    })
+    .then(response => {
+        console.log(response);
+        return response.json();
+    })
+    .then(function (data) {
+      console.log(data)
+    })
+    .catch(err => {
+        console.error(err);
+    });
+
+
+
 }
-
-
-
-
+changeToStock()
 
 
 //This event listener calls to changeToCrypto function
