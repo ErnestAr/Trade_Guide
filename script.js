@@ -1,6 +1,7 @@
+var queryURL = ""
 var stockCard = $('#stockcard')
 var cryptoCard = $('#cryptocard')
-var search = $(#"searchforminput") //need to add this as id in bootstrap input form
+var search = $("#searchforminput") //need to add this as id in bootstrap input form
 
 //This function should:
 //1.  switch search class to crypto 
