@@ -3,6 +3,7 @@ var cryptoCard = $("#cryptocard");
 var btnSearch = $(".btn");
 var srchRes = $(".searchrlt");
 var recommend = $(".rcmd");
+var newsSec = $(".news")
 
 //This function should:
 //1.  switch search class to crypto
@@ -46,9 +47,10 @@ function changeToStock (event) {
         recom[i].text("")
         
     }
+    getStockRecs();
     getStockNews();
 }
-//Analia could you put your fetch function call for stock news here
+//fetch stock search 
 function getStockSearch(searchValue){
     srchRes.children().remove();
     fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary?symbol=" + searchValue  +"&region=US", {
@@ -63,7 +65,7 @@ function getStockSearch(searchValue){
    })
     .then(function (data) {
     console.log(data)
-    srchRes.append("<p> " + "<strong> " +  data.symbol + "</strong> " +  "</p>");
+    srchRes.append("<h2> " + "<strong> " +  data.symbol + "</strong> " +  "</h2>");
     srchRes.append("<p> " + data.quoteType.longName + "</p>");
     var marketPrice = data.price.regularMarketPrice.raw * 1.21
     marketPrice = marketPrice.toFixed(2)
@@ -76,7 +78,8 @@ function getStockSearch(searchValue){
    });
 }
 
-function getStockNews(){
+//fetch recommended stocks
+function getStockRecs(){
     fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-recommendations?symbol=INTC", {
 	method: "GET",
 	headers: {
@@ -88,11 +91,9 @@ function getStockNews(){
         return response.json();
     })
     .then(function (data) {
-    console.log(data)
     recommend.append("<h2> Top 5 Recommended Stocks <h2/>")
     for (i=0;i<7;i++){
         recommend.append("<p>" + data.finance.result[0].quotes[i].symbol + " " + "- " + data.finance.result[0].quotes[i].shortName + "<br>" + "$" + (data.finance.result[0].quotes[i].regularMarketPrice * 1.21).toFixed(2) + "</p>")
-
     }
     
     })
@@ -101,6 +102,30 @@ function getStockNews(){
     });
 }
 
+//fetch stock news
+function getStockNews(){
+    newsSec.children().remove();
+    fetch(
+    "https://gnews.io/api/v4/search?q=stocks&token=45a93e37179e59245a6328124c1b7c89"
+    )
+    .then((response) => {
+      return response.json();
+    })
+    .then(function (data) {
+        console.log(data)
+    newsSec.append("<h2>Trending News</h2>");
+    for (let i = 0; i < 3; i++) {
+        newsSec.append("<h4> " + data.articles[i].title + "</h4>");
+        newsSec.append("<p> " + data.articles[i].content + "</p>");
+      }
+    })
+    .catch((err) => {
+     console.error(err);
+    });
+
+}
+
+    
 changeToStock()
 
 
