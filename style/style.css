@@ -8,9 +8,7 @@
     height: fit-content
 }
 
-div {
-    height: 300px;
-}
+
 
 a {
     height: 30px;
@@ -20,6 +18,9 @@ h3 {
     height: 30px;
 }
 
-p {
-    height: 30px;
+
+
+
+.searchrlt {
+    height: fit-content;
 }
