@@ -2,7 +2,7 @@
     --lightGray: #CACFD6;
     --azure: #D6E5e3;
     --mbGreen: #9fd8cb;
-    --dLiver: #604d53;
+    --dLiver: #475B63;
     --pBlue: #13293d;
 }
 
@@ -12,37 +12,26 @@
     margin-bottom: 10px;
 }
 
-.cardSmall {
+
+/* Stock card */
+.stockcard {
     width: 15%;
-    margin: 5px;
     background-color: var(--mbGreen);
     border: none;
     color: black;
     border-radius: 8px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-       
 }
 
-/* Enlarged card */
-.cardLarge {
+.stockcard:hover {
+
+} 
+
+.stockcardlg {
     margin: 3%;
     transform: scale(1.2);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }
 
-
-.summary-head {
-    margin-top: 5px;
-    padding: 2px;
-    border-radius: 8px;
-    height: fit-content;    
-    width: 100%;
-    text-align: center;
-    color:black;
-
-}
-
-.summary-text {
+.stockcard:nth-child(0) {
     padding: 3px;
     text-align: center;
     font-size: 25px;
@@ -52,9 +41,45 @@
     height: fit-content;       
 }
 
+
+
+/* Crypto card */
+.cryptocard {
+    width: 15%;
+    background-color: var(--mbGreen);
+    border: none;
+    color: black;
+    border-radius: 8px;
+}
+
+.cryptocard:hover {
+
+}
+.cryptocardlg {
+
+    transform: scale(1.2);
+}
+
+.cryptocard:nth-child(){
+    margin-top: 5px;
+    padding: 2px;
+    border-radius: 8px;
+    height: fit-content;    
+    width: 100%;
+    text-align: center;
+    color:black;
+}
+
+
+
+
+
+
+
 #navbar {
     height: fit-content
 }
+
 
 
 
