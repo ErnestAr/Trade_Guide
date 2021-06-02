@@ -46,6 +46,7 @@ function changeToStock (event) {
         recom[i].text("")
         
     }
+    getStockNews();
 }
 //Analia could you put your fetch function call for stock news here
 function getStockSearch(searchValue){
@@ -64,18 +65,41 @@ function getStockSearch(searchValue){
     console.log(data)
     srchRes.append("<p> " + "<strong> " +  data.symbol + "</strong> " +  "</p>");
     srchRes.append("<p> " + data.quoteType.longName + "</p>");
-    srchRes.append("<p> " + data.summaryProfile.longBusinessSummary + "</p>");
     var marketPrice = data.price.regularMarketPrice.raw * 1.21
     marketPrice = marketPrice.toFixed(2)
     srchRes.append("<p> " + "Price: $" + marketPrice + " CAD" + "</p>");
+    srchRes.append("<p> " + data.summaryProfile.longBusinessSummary + "</p>");
     srchRes.append("<a href=" + data.summaryProfile.website + ">" + data.summaryProfile.website + "</a>");
    })
    .catch(err => {
    console.error(err);
    });
 }
-    
 
+function getStockNews(){
+    fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-recommendations?symbol=INTC", {
+	method: "GET",
+	headers: {
+		"x-rapidapi-key": "cc1be2c279msh0c79bca34154d17p122150jsn9ba23118deaf",
+		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+	}
+    })
+    .then(response => {
+        return response.json();
+    })
+    .then(function (data) {
+    console.log(data)
+    recommend.append("<h2> Top 5 Recommended Stocks <h2/>")
+    for (i=0;i<7;i++){
+        recommend.append("<p>" + data.finance.result[0].quotes[i].symbol + " " + "- " + data.finance.result[0].quotes[i].shortName + "<br>" + "$" + (data.finance.result[0].quotes[i].regularMarketPrice * 1.21).toFixed(2) + "</p>")
+
+    }
+    
+    })
+    .catch(err => {
+	console.error(err);
+    });
+}
 
 changeToStock()
 
