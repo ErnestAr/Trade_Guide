@@ -1,3 +1,11 @@
+:root {
+    --lightGray: #CACFD6;
+    --azure: #D6E5e3;
+    --mbGreen: #9fd8cb;
+    --dLiver: #604d53;
+    --pBlue: #13293d;
+}
+
 *{
     border: 2px solid black;
     margin-top: 20px;
@@ -7,10 +15,10 @@
 .cardSmall {
     width: 15%;
     margin: 5px;
-    background-color: #fff;
+    background-color: var(--mbGreen);
     border: none;
-    color: blanchedalmond;
-    border-radius: 18px;
+    color: black;
+    border-radius: 8px;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
        
 }
@@ -24,13 +32,13 @@
 
 
 .summary-head {
-    margin-top: 3px;
+    margin-top: 5px;
     padding: 2px;
+    border-radius: 8px;
     height: fit-content;    
     width: 100%;
-    border-radius: 18px;
     text-align: center;
-    background-color: cornflowerblue;
+    color:black;
 
 }
 
@@ -38,10 +46,10 @@
     padding: 3px;
     text-align: center;
     font-size: 25px;
-    background-color: darkmagenta;
-    height: fit-content;
-    border-radius: 18px;
-    
+    border-radius: 8px;
+    background-color: var(--azure);
+    border: none;
+    height: fit-content;       
 }
 
 #navbar {
