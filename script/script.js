@@ -66,7 +66,7 @@ function getCryptoNews() {
 
 //Get search results for crypto
 function getCryptoSearch(searchValue) {
-  srchRes.children().eq(3).children().eq(0).remove();
+  srchRes.children().remove();
   fetch(
     "https://coingecko.p.rapidapi.com/coins/" +
       searchValue +
