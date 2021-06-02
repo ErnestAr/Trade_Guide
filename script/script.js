@@ -115,3 +115,5 @@ btnSearch.on("click", function (event) {
     getCryptoSearch(searchValue);
   }
 });
+
+
