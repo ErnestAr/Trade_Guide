@@ -1,102 +1,162 @@
 :root {
-    --lightGray: #CACFD6;
-    --azure: #D6E5e3;
-    --mbGreen: #9fd8cb;
-    --dLiver: #475B63;
-    --pBlue: #13293d;
+  --lightGray: #cacfd6;
+  --azure: #d6e5e3;
+  --mbGreen: #9fd8cb;
+  --dLiver: #475b63;
+  --pBlue: #13293d;
 }
 
-*{
-    border: 2px solid black;
-    margin-top: 20px;
-    margin-bottom: 10px;
+* {
+  /* border: 2px solid black; */
+  margin: 0px 0px 0px 0px;
+  border-radius: 10px;
 }
 
+header {
+    border-bottom: var(--pBlue) 3px solid;
+}
+img {
+  display: inline-block;
+  margin: 5px;
+}
+a,
+h3,
+p {
+  height: fit-content;
+  color: var(--pBlue);
 
+}
+
+p {
+    margin: 0px 10px 0px 10px;
+}
+.cards {
+  height: 650px;
+}
+
+.btn {
+  position: absolute;
+  width: 317px;
+  height: 61px;
+  left: 95px;
+  top: 97.5px;
+  background: #9fd8cb;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+#navbar {
+  height: 80px;
+  background-color: var(--azure);
+  width: auto;
+}
+.search {
+  margin-top: 20px;
+  position: relative;
+  width: 379px;
+  height: 327px;
+  background: #d6e5e3;
+  width: 479px;
+}
+
+.searchrlt {
+  height: fit-content;
+  margin-top: 20px;
+  width: 970px;
+  height: 714px;
+
+  background: #d6e5e3;
+}
+
+.news {
+  margin-top: 20px;
+  width: 479px;
+  height: fit-content;
+
+  background: #d6e5e3;
+}
+
+.rcmd {
+  margin-top: 20px;
+  width: 970px;
+  height: fit-content;
+
+  background: #d6e5e3;
+}
+
+/* Cards */
+.cards h3 {
+    text-align: center;
+    margin-top: 10px;
+    background-color: var(--azure);
+}
+.cards p {
+    background-color: var(--azure);
+}
 /* Stock card */
 .stockcard {
-    width: 15%;
-    background-color: var(--mbGreen);
-    border: none;
-    color: black;
-    border-radius: 8px;
+  width: 377px;
+  height: 500px;
+  background: #cacfd6;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 20px 10px 0px 10px;
+  opacity: 0.6;
 }
 
 .stockcard:hover {
-
-} 
+    opacity: 1.0;
+}
 
 .stockcardlg {
-    margin: 3%;
-    transform: scale(1.2);
+  width: 464px;
+  height: 573px;
+  margin: 20px 10px 0px 10px;
+  background: #cacfd6;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.stockcardlg h3 {
+    font-size: 60px;
 }
 
-.stockcard:nth-child(0) {
-    padding: 3px;
-    text-align: center;
-    font-size: 25px;
-    border-radius: 8px;
-    background-color: var(--azure);
-    border: none;
-    height: fit-content;       
+.stockcardlg p {
+    font-size: larger;
+    height: 450px;
+
 }
-
-
 
 /* Crypto card */
 .cryptocard {
-    width: 15%;
-    background-color: var(--mbGreen);
-    border: none;
-    color: black;
-    border-radius: 8px;
+    opacity: 0.6;
+  width: 377px;
+  height: 500px;
+  background: #cacfd6;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 20px 10px 0px 10px;
 }
 
 .cryptocard:hover {
-
+    opacity: 1.0;
 }
 .cryptocardlg {
-
-    transform: scale(1.2);
-}
-
-.cryptocard:nth-child(){
-    margin-top: 5px;
-    padding: 2px;
-    border-radius: 8px;
-    height: fit-content;    
-    width: 100%;
-    text-align: center;
-    color:black;
+  width: 464px;
+  height: 573px;
+  margin: 20px 10px 0px 10px;
+  background: #cacfd6;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 
+.cryptocardlg h3 {
+    font-size: 60px;
+}
+.cryptocardlg p {
+    font-size: larger;
+    height: 450px;
 
-
-
-
-
-#navbar {
-    height: fit-content
 }
 
 
 
-
-a {
-    height: 30px;
-}
-
-h3 {
-    height: 30px;
-}
-
-
-
-
-.searchrlt {
-    height: fit-content;
-}
-img {
-    display: inline;
-}
