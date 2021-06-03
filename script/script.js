@@ -239,6 +239,38 @@ function getCryptoSearch(searchValue) {
     });
 }
 
+
+
+var y_coordinate = [1,4,5,6,7,8,5,3,4,6];
+var y_coordinate_1 = [3,6,8,7,5,4,3,6];
+var x_coordinate = ["braw", "brahh", "brahhhhh"]
+//this function creates chart 
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: x_coordinate,
+    datasets: [
+      { 
+        data: y_coordinate,
+        label: "Name here",
+        borderColor: "#9fd8cb",
+        fill: "#cacfd6"
+      },
+      { 
+        data: y_coordinate_1,
+        label: "Name here1",
+        borderColor: "#9fd8cb",
+        fill: "#cacfd6"
+      }
+    ]
+  }
+});
+//create the chart
+
+
+
+
 //This event listener calls to changeToCrypto function
 cryptoCard.on("click", function (event) {
   changeToCrypto(event);
