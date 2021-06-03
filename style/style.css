@@ -13,36 +13,51 @@
   border-radius: 10px;
 }
 
-
 header {
-    border-bottom: var(--pBlue) 3px solid;
-
+  border-bottom: var(--pBlue) 3px solid;
 }
 img {
   display: inline-block;
   margin: 5px;
-  margin-left:5px;
-   margin-top: 10px;
-    border: 4px solid var(--lightGray);
-     border-radius: 5px;
+  margin-left: 5px;
+  margin-top: 10px;
+  border: 4px solid var(--lightGray);
+  border-radius: 5px;
 }
-
 
 a,
 h3,
 p {
   height: fit-content;
   color: var(--pBlue);
-
 }
 
+a:hover {
+  color: var(--pBlue);
+  opacity: 1;
+  border-bottom: 2px solid var(--pBlue);
+  opacity: 1;
+}
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: 'Playfair Display SC', serif;
+a {
+  margin: 0px 5px 0px 5px;
+  text-decoration: none;
+  border-radius: 0px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display SC", serif;
 }
 p {
-    margin: 0px 10px 0px 10px;
-    font-family: 'Roboto', sans-serif;
+  margin: 0px 10px 0px 10px;
+  font-family: "Roboto", sans-serif;
 }
 .cards {
   height: 650px;
@@ -62,18 +77,31 @@ p {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   border: none;
+  opacity: 0.7;
+  font-size: 30px;
+  color: var(--pBlue);
 }
 .btn:hover {
   background: #9fd8cb;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   border: none;
+  opacity: 1;
 }
 
 .btn:active {
-  
+  background: #9fd8cb;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: none;
 }
 
+.btn:focus {
+  background: #9fd8cb;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: none;
+}
 
 .form-control {
   position: absolute;
@@ -106,12 +134,16 @@ p {
   margin-bottom: 10px;
 }
 .navbar a {
-  text-decoration: none;
-  font-family: 'Playfair Display SC', serif;
+  font-family: "Playfair Display SC", serif;
   font-size: 30px;
   height: fit-content;
-  --bs-gutter-x:0px
+  --bs-gutter-x: 0px;
+  opacity: 0.8;
+}
 
+.navbar a:hover {
+  border: none;
+  opacity: 1;
 }
 
 .search {
@@ -141,7 +173,7 @@ p {
 
 .rcmd {
   margin-top: 20px;
-  
+
   width: 950px;
   height: fit-content;
   background: #d6e5e3;
@@ -149,26 +181,25 @@ p {
 
 /* Cards */
 .cards h3 {
-    text-align: center;
-    margin-top: 10px;
-    background-color: var(--azure);
-    margin-bottom: 15px;
-    height: fit-content;
-    vertical-align: middle;
-    font-size: 30px;
-    padding-bottom: 5px;
-    width: auto;
-    margin-left: 3%;
-    margin-right: 3%;
-    transition: 0.5s ease;
-    
+  text-align: center;
+  margin-top: 10px;
+  background-color: var(--azure);
+  margin-bottom: 15px;
+  height: fit-content;
+  vertical-align: middle;
+  font-size: 30px;
+  padding-bottom: 5px;
+  width: auto;
+  margin-left: 3%;
+  margin-right: 3%;
+  transition: 0.5s ease;
 }
 .cards p {
-    background-color: var(--azure);
-    text-align: center;
-    height: 420px;
-    padding-top: 10px;
-    transition: 0.5s ease;
+  background-color: var(--azure);
+  text-align: center;
+  height: 420px;
+  padding-top: 10px;
+  transition: 0.5s ease;
 }
 /* Stock card */
 .stockcard {
@@ -180,11 +211,12 @@ p {
   margin: 20px 10px 0px 10px;
   opacity: 0.6;
   transition: 0.5s ease;
-
+  cursor: pointer;
 }
 
 .stockcard:hover {
-    opacity: 1.0;
+  opacity: 1;
+  background-color: var(--mbGreen);
 }
 
 .stockcardlg {
@@ -195,31 +227,26 @@ p {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   transition: var(--ease);
+  cursor: pointer;
 }
 .stockcardlg h3 {
-    font-size: 60px;
-    height: fit-content;
-    width: auto;
-    margin-left: 3%;
-    margin-right: 3%;
-    transition: var(--ease);
-
+  font-size: 60px;
+  height: fit-content;
+  width: auto;
+  margin-left: 3%;
+  margin-right: 3%;
+  transition: var(--ease);
 }
 
 .stockcardlg p {
-    font-size: larger;
-    height: 450px;
-    transition: var(--ease);
-
-}
-
-.inline {
-  display: inline;
+  font-size: larger;
+  height: 450px;
+  transition: var(--ease);
 }
 
 /* Crypto card */
 .cryptocard {
-    opacity: 0.6;
+  opacity: 0.6;
   width: 377px;
   height: 500px;
   background: #cacfd6;
@@ -227,11 +254,14 @@ p {
   border-radius: 10px;
   margin: 20px 10px 0px 10px;
   transition: var(--ease);
+  cursor: pointer;
 }
 
 .cryptocard:hover {
-    opacity: 1.0;
+  opacity: 1;
+  background-color: var(--mbGreen);
 }
+
 .cryptocardlg {
   width: 464px;
   height: 573px;
@@ -240,23 +270,24 @@ p {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   transition: var(--ease);
+  cursor: pointer;
 }
 
-
 .cryptocardlg h3 {
-    font-size: 60px;
-    width: auto;
-    margin-left: 3%;
-    margin-right: 3%;
-    height: fit-content;
-    transition: var(--ease);
+  font-size: 60px;
+  width: auto;
+  margin-left: 3%;
+  margin-right: 3%;
+  height: fit-content;
+  transition: var(--ease);
 }
 
 .cryptocardlg p {
-    font-size: larger;
-    height: 450px;
-    transition: var(--ease);
-
+  font-size: larger;
+  height: 450px;
+  transition: var(--ease);
 }
 
-
+.inline {
+  display: inline;
+}
