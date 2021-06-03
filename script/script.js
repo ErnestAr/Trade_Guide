@@ -70,7 +70,7 @@ function getStockSearch(searchValue) {
         "<p> " + data.summaryProfile.longBusinessSummary + "</p></br>"
       );
       srchRes.append(
-        "<a style='padding-left:10px' href=" +
+        "<a style='padding-left:5px' href=" +
           data.summaryProfile.website +
           ">Home Page</a>"
       );
@@ -136,7 +136,7 @@ function getStockNews() {
           "<div><h5> " +
             data.articles[i].title +
             "</h5> <p>" +
-            data.articles[i].content +
+            + data.articles[i].description  + " " +"<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
             "</p></br></div> "
         );
       }
@@ -189,7 +189,7 @@ function getCryptoNews() {
           "<div><h5> " +
             data.articles[i].title +
             "</h5> <p>" +
-            data.articles[i].content +
+            + data.articles[i].description  + " " +"<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
             "</p></br></div> "
         );
       }
