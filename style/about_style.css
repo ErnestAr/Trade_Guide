@@ -1,0 +1,37 @@
+:root {
+    --lightGray: #CACFD6;
+    --azure: #D6E5e3;
+    --mbGreen: #9fd8cb;
+    --dLiver: #604d53;
+    --pBlue: #13293d;
+}
+
+*{
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#navbar {
+    height: fit-content
+}
+
+
+
+a {
+    height: 30px;
+}
+
+h3 {
+    height: 30px;
+}
+
+
+
+
+.searchrlt {
+    height: fit-content;
+}
+img {
+    display: inline;
+}
