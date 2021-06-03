@@ -126,34 +126,18 @@ function getStockNews(){
 
 
 
+
+
 //Get news feed  and recomendations for crypto
 function getCryptoNews() {
   //Fetch Top 7 crypto section
   fetch(
     "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/search/trending"
   )
-
     .then((response) => {
       return response.json();
     })
     .then(function (data) {
-        console.log(data)
-    newsSec.append("<h2>Trending News</h2>");
-    for (let i = 0; i < 3; i++) {
-        newsSec.append("<h4> " + data.articles[i].title + "</h4>");
-        newsSec.append("<p> " + data.articles[i].content + "</p>");
-      }
-    })
-    .catch((err) => {
-     console.error(err);
-    });
-
-}
-
-//Get news feed for crypto
-function getCryptoNews() {
-  fetch(
-    "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/search/trending"
       var coinInfo = data.coins;
       recommend.append("<h3>Top 7 Cryptocurrencies</h3>");
       for (let i = 0; i < coinInfo.length; i++) {
