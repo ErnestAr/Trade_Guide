@@ -159,16 +159,17 @@ function getCryptoNews() {
     })
     .then(function (data) {
       var coinInfo = data.coins;
+
       for (let i = 0; i < coinInfo.length; i++) {
         coinInfo[i].item.name;
         coinInfo[i].item.small;
         recommend.append("<img src='" + coinInfo[i].item.small + "'>");
         recommend.append("<p> " + coinInfo[i].item.name + "</p>");
       newsSec.append("<h3>Trending News</h3>");
+      }
       for (let i = 0; i < 5; i++) {
         newsSec.append("<h6> " + data.articles[i].title + "</h6>");
         newsSec.append("<p> " + data.articles[i].content + "</p>");
-
       }
     })
     .catch((err) => {
