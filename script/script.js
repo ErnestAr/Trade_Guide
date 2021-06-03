@@ -13,8 +13,7 @@ function changeToCrypto(event) {
   stockCard.addClass("stockcard");
   cryptoCard.removeClass("cryptocard");
   cryptoCard.addClass("cryptocardlg");
-  btnSearch.removeClass("searchstock");
-  btnSearch.addClass("searchcrypto");
+  btnSearch.attr("id", "searchcrypto");
 
   srchRes.children().remove();
   recommend.children().remove();
@@ -31,8 +30,7 @@ function changeToStock(event) {
   stockCard.addClass("stockcardlg");
   cryptoCard.removeClass("cryptocardlg");
   cryptoCard.addClass("cryptocard");
-  btnSearch.removeClass("searchcrypto");
-  btnSearch.addClass("searchstock");
+  btnSearch.attr("id", "searchstock");
 
   srchRes.children().remove();
   recommend.children().remove();
@@ -59,13 +57,13 @@ function getStockSearch(searchValue){
    })
     .then(function (data) {
     console.log(data)
-    srchRes.append("<h2> " + "<strong> " +  data.symbol + "</strong> " +  "</h2>");
+    srchRes.append("<h4 style='padding:10px'> " + "<strong> " +  data.symbol + "</strong> " +  "</h4>");
     srchRes.append("<p> " + data.quoteType.longName + "</p>");
     var marketPrice = data.price.regularMarketPrice.raw * 1.21
     marketPrice = marketPrice.toFixed(2)
-    srchRes.append("<p> " + "Price: $" + marketPrice + " CAD" + "</p>");
-    srchRes.append("<p> " + data.summaryProfile.longBusinessSummary + "</p>");
-    srchRes.append("<a href=" + data.summaryProfile.website + ">" + data.summaryProfile.website + "</a>");
+    srchRes.append("<p> " + "Price: $" + marketPrice + " CAD" + "</p></br>");
+    srchRes.append("<p> " + data.summaryProfile.longBusinessSummary + "</p></br>");
+    srchRes.append("<a style='padding-left:10px' href=" + data.summaryProfile.website + ">Home Page</a>");
    })
    .catch(err => {
    console.error(err);
@@ -87,14 +85,14 @@ function getStockRecs(){
         return response.json();
     })
     .then(function (data) {
-    recommend.append("<h2> Top 5 Recommended Stocks <h2/>")
+    recommend.append("<h3 style= 'margin:10px; padding-top:5px'> Top 5 Recommended Stocks <h2/>")
     for (i=0;i<7;i++){
-        recommend.append("<p>" + data.finance.result[0].quotes[i].symbol + " " + "- " + data.finance.result[0].quotes[i].shortName + "<br>" + "$" + (data.finance.result[0].quotes[i].regularMarketPrice * 1.21).toFixed(2) + "</p>")
+        recommend.append("<h6 style= 'margin:10px'>" + data.finance.result[0].quotes[i].symbol + " " + "- " + data.finance.result[0].quotes[i].shortName + "</h6><p> $ " + (data.finance.result[0].quotes[i].regularMarketPrice * 1.21).toFixed(2) + "</p><br>")
     }
     
     })
     .catch(err => {
-	console.error(err);
+	  console.error(err);
     });
 }
 
@@ -111,10 +109,9 @@ function getStockNews(){
     })
     .then(function (data) {
         console.log(data)
-    newsSec.append("<h2>Trending News</h2>");
+    newsSec.append("<h3>Trending News</h3>");
     for (let i = 0; i < 3; i++) {
-        newsSec.append("<h4> " + data.articles[i].title + "</h4>");
-        newsSec.append("<p> " + data.articles[i].content + "</p>");
+        newsSec.append("<div><h5> " + data.articles[i].title + "</h5> <p>"  + data.articles[i].content + "</p></br></div> ")
       }
     })
     .catch((err) => {
@@ -122,6 +119,8 @@ function getStockNews(){
     });
 
 }
+
+
 
 
 
@@ -139,10 +138,9 @@ function getCryptoNews() {
     })
     .then(function (data) {
       var coinInfo = data.coins;
-      recommend.append("<h3>Top 7 Cryptocurrencies</h3>");
+      recommend.append("<h3 style= 'margin:10px'>Top 7 Recommended Crypto</h3>");
       for (let i = 0; i < coinInfo.length; i++) {
-        recommend.append("<img src='" + coinInfo[i].item.small + "'>");
-        recommend.append("<p> " + coinInfo[i].item.name + "</p>");
+        recommend.append("<div class=><img  class='inline' src='" + coinInfo[i].item.small + "'><p class='inline'> " + coinInfo[i].item.name + "</p> </div>")
       }
     })
     .catch((err) => {
@@ -159,23 +157,17 @@ function getCryptoNews() {
     })
     .then(function (data) {
       var coinInfo = data.coins;
-
-      for (let i = 0; i < coinInfo.length; i++) {
-        coinInfo[i].item.name;
-        coinInfo[i].item.small;
-        recommend.append("<img src='" + coinInfo[i].item.small + "'>");
-        recommend.append("<p> " + coinInfo[i].item.name + "</p>");
       newsSec.append("<h3>Trending News</h3>");
-      }
       for (let i = 0; i < 5; i++) {
-        newsSec.append("<h6> " + data.articles[i].title + "</h6>");
-        newsSec.append("<p> " + data.articles[i].content + "</p>");
+        newsSec.append("<div><h5> " + data.articles[i].title + "</h5> <p>"  + data.articles[i].content  + "</p></br></div> ")
       }
     })
     .catch((err) => {
       console.error(err);
     });
 }
+
+
 
 
 
@@ -198,17 +190,18 @@ function getCryptoSearch(searchValue) {
       return response.json();
     })
     .then(function (data) {
-      srchRes.append("<img src='" + data.image.small + "'>");
-      srchRes.append("<p> " + data.name + "</p>");
+     
+      srchRes.append("<img  src='" + data.image.small + "'>");
+      srchRes.append("<h5 style='margin-left:5px;'> " + data.name + "</h5>");
       srchRes.append(
-        "<p> " + "Price: CAD $" + data.market_data.current_price.cad + "</p>"
+        "<p> " + "Price: CAD $" + data.market_data.current_price.cad + "</p> </br>"
       );
-      srchRes.append("<p>" + data.description.en + "</p>");
+      srchRes.append("<p>" + data.description.en + "</p> </br>");
 
-      srchRes.append("<p> " + "Homepage: " + data.links.homepage + "</p>");
+      
 
-      srchRes.append(
-        "<p> <a href='" + data.links.homepage + "'>Bitcoin Home Page</a></p>"
+       srchRes.append(
+         "<p> <a href='" + data.links.homepage + "'>Home Page</a></p>"
       );
 
       srchRes.append("<p> " + "Genesis Date: " + data.genesis_date + "</p>");
@@ -241,7 +234,7 @@ btnSearch.on("click", function (event) {
     getCryptoSearch(searchValue);
   }
 
- if (searchTopic === "searchstock") {
+  if (searchTopic === "searchstock") {
         var searchValue = btnSearch.parent().children().eq(0).val().toLowerCase();
         getStockSearch(searchValue);
   }

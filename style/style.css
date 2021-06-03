@@ -4,6 +4,7 @@
   --mbGreen: #9fd8cb;
   --dLiver: #475b63;
   --pBlue: #13293d;
+  --ease: 0.5s ease;
 }
 
 * {
@@ -20,6 +21,10 @@ header {
 img {
   display: inline-block;
   margin: 5px;
+  margin-left:5px;
+   margin-top: 10px;
+    border: 4px solid var(--lightGray);
+     border-radius: 5px;
 }
 
 
@@ -69,6 +74,7 @@ p {
   
 }
 
+
 .form-control {
   position: absolute;
   width: 417px;
@@ -108,7 +114,6 @@ p {
 
 }
 
-
 .search {
   margin-top: 20px;
   position: relative;
@@ -131,13 +136,14 @@ p {
   width: 479px;
   height: fit-content;
   background: #d6e5e3;
+  padding-left: 10px;
 }
 
 .rcmd {
   margin-top: 20px;
+  
   width: 950px;
   height: fit-content;
-  margin: 0px;
   background: #d6e5e3;
 }
 
@@ -154,6 +160,7 @@ p {
     width: auto;
     margin-left: 3%;
     margin-right: 3%;
+    transition: 0.5s ease;
     
 }
 .cards p {
@@ -161,6 +168,7 @@ p {
     text-align: center;
     height: 420px;
     padding-top: 10px;
+    transition: 0.5s ease;
 }
 /* Stock card */
 .stockcard {
@@ -171,6 +179,8 @@ p {
   border-radius: 10px;
   margin: 20px 10px 0px 10px;
   opacity: 0.6;
+  transition: 0.5s ease;
+
 }
 
 .stockcard:hover {
@@ -184,6 +194,7 @@ p {
   background: #cacfd6;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  transition: var(--ease);
 }
 .stockcardlg h3 {
     font-size: 60px;
@@ -191,12 +202,19 @@ p {
     width: auto;
     margin-left: 3%;
     margin-right: 3%;
+    transition: var(--ease);
+
 }
 
 .stockcardlg p {
     font-size: larger;
     height: 450px;
+    transition: var(--ease);
 
+}
+
+.inline {
+  display: inline;
 }
 
 /* Crypto card */
@@ -208,6 +226,7 @@ p {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   margin: 20px 10px 0px 10px;
+  transition: var(--ease);
 }
 
 .cryptocard:hover {
@@ -220,6 +239,7 @@ p {
   background: #cacfd6;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  transition: var(--ease);
 }
 
 
@@ -229,11 +249,14 @@ p {
     margin-left: 3%;
     margin-right: 3%;
     height: fit-content;
+    transition: var(--ease);
 }
 
 .cryptocardlg p {
     font-size: larger;
     height: 450px;
+    transition: var(--ease);
 
 }
+
 
