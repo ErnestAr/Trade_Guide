@@ -132,7 +132,7 @@ function getStockNews(){
 function getCryptoNews() {
   //Fetch Top 7 crypto section
   fetch(
-    "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/search/trending"
+    "https://api.coingecko.com/api/v3/search/trending"
   )
     .then((response) => {
       return response.json();
