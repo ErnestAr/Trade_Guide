@@ -6,12 +6,8 @@ var srchRes = $(".searchrlt");
 var recommend = $(".rcmd");
 var newsSec = $(".news")
 
-//This function should:
-//1.  switch search class to crypto
-//2. change css for cards
-//3.  call for crypto fetch if on stock
 
-//change layout to crypto
+//Change layout and button class to crypto
 function changeToCrypto(event) {
   stockCard.removeClass("stockcardlg");
   stockCard.addClass("stockcard");
@@ -20,40 +16,34 @@ function changeToCrypto(event) {
   btnSearch.removeClass("searchstock");
   btnSearch.addClass("searchcrypto");
 
-  var results = $(".searchrlt").children();
-
-  $(".rcmd").children().remove();
+  srchRes.children().remove();
+  recommend.children().remove();
+  
   getCryptoNews();
 }
 
 
-//This function should:
-//1.  switch search class to stock
-//2. change css for cards
-//3.  call for stock fetch if on crypto
 
+//Change to stocks layout and change button class
+//Change layout and button class to stock
+function changeToStock(event) {
+  stockCard.removeClass("stockcard");
+  stockCard.addClass("stockcardlg");
+  cryptoCard.removeClass("cryptocardlg");
+  cryptoCard.addClass("cryptocard");
+  btnSearch.removeClass("searchcrypto");
+  btnSearch.addClass("searchstock");
 
-function changeToStock (event) {
-    stockCard.removeClass( "stockcard")
-    stockCard.addClass("stockcardlg")
-    cryptoCard.removeClass("cryptocardlg")
-    cryptoCard.addClass("cryptocard")
-    btnSearch.removeClass("searchcrypto")
-    btnSearch.addClass("searchstock")
-    
-    var results = $(".searchrlt").children()
-    for (let i = 0; i < results.length; i++) {
-        results[i].text("")
-        
-    }
-    var recom = $(".rcmd").children()
-    for (let i = 0; i < recom.length; i++) {
-        recom[i].text("")
-        
-    }
+  srchRes.children().remove();
+  recommend.children().remove();
+
     getStockRecs();
     getStockNews();
 }
+
+
+
+
 //fetch stock search 
 function getStockSearch(searchValue){
     srchRes.children().remove();
@@ -82,6 +72,8 @@ function getStockSearch(searchValue){
    });
 }
 
+
+
 //fetch recommended stocks
 function getStockRecs(){
     fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-recommendations?symbol=INTC", {
@@ -106,6 +98,8 @@ function getStockRecs(){
     });
 }
 
+
+
 //fetch stock news
 function getStockNews(){
     newsSec.children().remove();
@@ -129,19 +123,8 @@ function getStockNews(){
 
 }
 
-//Change layout and button class to stock
-function changeToStock(event) {
-  stockCard.removeClass("stockcard");
-  stockCard.addClass("stockcardlg");
-  cryptoCard.removeClass("cryptocardlg");
-  cryptoCard.addClass("cryptocard");
-  btnSearch.removeClass("searchcrypto");
-  btnSearch.addClass("searchstock");
 
-  recommend.children().remove();
 
-  getStockNews();
-}
 
 //Get news feed  and recomendations for crypto
 function getCryptoNews() {
@@ -209,6 +192,8 @@ function getCryptoNews() {
     });
 }
 
+
+
 //Get search results for crypto
 function getCryptoSearch(searchValue) {
   srchRes.children().remove();
@@ -248,6 +233,9 @@ function getCryptoSearch(searchValue) {
     });
 }
 
+
+
+
 //This event listener calls to changeToCrypto function
 cryptoCard.on("click", function (event) {
   changeToCrypto(event);
@@ -260,7 +248,6 @@ stockCard.on("click", function (event) {
 
 
 //This event listener calls for search results depending on button class
-
 btnSearch.on("click", function (event) {
   event.preventDefault();
   var searchTopic = btnSearch.attr("id");

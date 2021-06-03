@@ -1,79 +1,240 @@
 :root {
-    --lightGray: #CACFD6;
-    --azure: #D6E5e3;
-    --mbGreen: #9fd8cb;
-    --dLiver: #604d53;
-    --pBlue: #13293d;
+  --lightGray: #cacfd6;
+  --azure: #d6e5e3;
+  --mbGreen: #9fd8cb;
+  --dLiver: #475b63;
+  --pBlue: #13293d;
 }
 
-*{
-    border: 2px solid black;
-    margin-top: 20px;
-    margin-bottom: 10px;
+* {
+  /* border: 2px solid black; */
+  margin: 0px 0px 0px 0px;
+  border-radius: 10px;
 }
 
-.cardSmall {
-    width: 15%;
-    margin: 5px;
-    background-color: var(--mbGreen);
-    border: none;
-    color: black;
-    border-radius: 8px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-       
-}
-
-/* Enlarged card */
-.cardLarge {
-    margin: 3%;
-    transform: scale(1.2);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-}
-
-
-.summary-head {
-    margin-top: 5px;
-    padding: 2px;
-    border-radius: 8px;
-    height: fit-content;    
-    width: 100%;
-    text-align: center;
-    color:black;
-
-}
-
-.summary-text {
-    padding: 3px;
-    text-align: center;
-    font-size: 25px;
-    border-radius: 8px;
-    background-color: var(--azure);
-    border: none;
-    height: fit-content;       
-}
-
-#navbar {
-    height: fit-content
-}
-
-
-
-a {
-    height: 30px;
-}
-
-h3 {
-    height: 30px;
-}
-
-
-
-
-.searchrlt {
-    height: fit-content;
-
+header {
+    border-bottom: var(--pBlue) 3px solid;
 }
 img {
-    display: inline;
+  display: inline-block;
+  margin: 5px;
+}
+
+
+a,
+h3,
+p {
+  height: fit-content;
+  color: var(--pBlue);
 
 }
+
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Playfair Display SC', serif;
+}
+p {
+    margin: 0px 10px 0px 10px;
+    font-family: 'Roboto', sans-serif;
+}
+.cards {
+  height: 650px;
+}
+
+.asideleft {
+  margin-left: 10px;
+}
+
+.btn {
+  position: absolute;
+  width: 417px;
+  height: 61px;
+  left: 25px;
+  top: 230px;
+  background: #9fd8cb;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: none;
+}
+.btn:hover {
+  background: #9fd8cb;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: none;
+}
+
+.btn:active {
+  
+}
+
+.form-control {
+  position: absolute;
+  width: 417px;
+  height: 61px;
+  left: 25px;
+  top: 150px;
+  background: var(white);
+  border-radius: 5px;
+  border: none;
+}
+
+.formhead {
+  position: absolute;
+  width: 417px;
+  height: 61px;
+  left: 25px;
+  top: 50px;
+  background: var(white);
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  font-size: 50px;
+}
+.navbar {
+  height: 80px;
+  background-color: var(--azure);
+  width: auto;
+  border-radius: 0px;
+  margin-bottom: 10px;
+}
+.navbar a {
+  text-decoration: none;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 30px;
+  height: fit-content;
+  --bs-gutter-x:0px
+
+}
+
+
+.search {
+  margin-top: 20px;
+  position: relative;
+  width: 379px;
+  height: 327px;
+  background: #d6e5e3;
+  width: 479px;
+}
+
+.searchrlt {
+  height: fit-content;
+  margin-top: 20px;
+  width: 950px;
+  height: 714px;
+  background: #d6e5e3;
+}
+
+.news {
+  margin-top: 20px;
+  width: 479px;
+  height: fit-content;
+  background: #d6e5e3;
+}
+
+.rcmd {
+  margin-top: 20px;
+  width: 950px;
+  height: fit-content;
+  margin: 0px;
+  background: #d6e5e3;
+}
+
+/* Cards */
+.cards h3 {
+    text-align: center;
+    margin-top: 10px;
+    background-color: var(--azure);
+    margin-bottom: 15px;
+    height: fit-content;
+    vertical-align: middle;
+    font-size: 30px;
+    padding-bottom: 5px;
+    width: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+    
+}
+.cards p {
+    background-color: var(--azure);
+    text-align: center;
+    height: 420px;
+    padding-top: 10px;
+}
+/* Stock card */
+.stockcard {
+  width: 377px;
+  height: 500px;
+  background: #cacfd6;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 20px 10px 0px 10px;
+  opacity: 0.6;
+}
+
+.stockcard:hover {
+    opacity: 1.0;
+}
+
+.stockcardlg {
+  width: 464px;
+  height: 573px;
+  margin: 20px 10px 0px 10px;
+  background: #cacfd6;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.stockcardlg h3 {
+    font-size: 60px;
+    height: fit-content;
+    width: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.stockcardlg p {
+    font-size: larger;
+    height: 450px;
+
+}
+
+/* Crypto card */
+.cryptocard {
+    opacity: 0.6;
+  width: 377px;
+  height: 500px;
+  background: #cacfd6;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 20px 10px 0px 10px;
+}
+
+.cryptocard:hover {
+    opacity: 1.0;
+}
+.cryptocardlg {
+  width: 464px;
+  height: 573px;
+  margin: 20px 10px 0px 10px;
+  background: #cacfd6;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+
+.cryptocardlg h3 {
+    font-size: 60px;
+    width: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+    height: fit-content;
+}
+
+.cryptocardlg p {
+    font-size: larger;
+    height: 450px;
+
+}
+
+
+
+
