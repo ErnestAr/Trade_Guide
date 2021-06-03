@@ -1,3 +1,4 @@
+
 var stockCard = $("#stockcard");
 var cryptoCard = $("#cryptocard");
 var btnSearch = $(".btn");
@@ -9,6 +10,8 @@ var newsSec = $(".news")
 //1.  switch search class to crypto
 //2. change css for cards
 //3.  call for crypto fetch if on stock
+
+//change layout to crypto
 function changeToCrypto(event) {
   stockCard.removeClass("stockcardlg");
   stockCard.addClass("stockcard");
@@ -22,6 +25,7 @@ function changeToCrypto(event) {
   $(".rcmd").children().remove();
   getCryptoNews();
 }
+
 
 //This function should:
 //1.  switch search class to stock
@@ -125,14 +129,63 @@ function getStockNews(){
 
 }
 
-    
-changeToStock()
+//Change layout and button class to stock
+function changeToStock(event) {
+  stockCard.removeClass("stockcard");
+  stockCard.addClass("stockcardlg");
+  cryptoCard.removeClass("cryptocardlg");
+  cryptoCard.addClass("cryptocard");
+  btnSearch.removeClass("searchcrypto");
+  btnSearch.addClass("searchstock");
 
+  recommend.children().remove();
+
+  getStockNews();
+}
+
+//Get news feed  and recomendations for crypto
+function getCryptoNews() {
+  //Fetch Top 7 crypto section
+  fetch(
+    "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/search/trending"
+  )
+
+    .then((response) => {
+      return response.json();
+    })
+    .then(function (data) {
+        console.log(data)
+    newsSec.append("<h2>Trending News</h2>");
+    for (let i = 0; i < 3; i++) {
+        newsSec.append("<h4> " + data.articles[i].title + "</h4>");
+        newsSec.append("<p> " + data.articles[i].content + "</p>");
+      }
+    })
+    .catch((err) => {
+     console.error(err);
+    });
+
+}
 
 //Get news feed for crypto
 function getCryptoNews() {
   fetch(
     "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/search/trending"
+      var coinInfo = data.coins;
+      recommend.append("<h3>Top 7 Cryptocurrencies</h3>");
+      for (let i = 0; i < coinInfo.length; i++) {
+        recommend.append("<img src='" + coinInfo[i].item.small + "'>");
+        recommend.append("<p> " + coinInfo[i].item.name + "</p>");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  //fetch news section
+  newsSec.children().remove();
+  fetch(
+    "https://cors-anywhere.herokuapp.com/https://gnews.io/api/v4/search?q=cryptocurrency&token=08ddb227701538687b737079c4e03f8e"
+
   )
     .then((response) => {
       return response.json();
@@ -144,13 +197,17 @@ function getCryptoNews() {
         coinInfo[i].item.small;
         recommend.append("<img src='" + coinInfo[i].item.small + "'>");
         recommend.append("<p> " + coinInfo[i].item.name + "</p>");
+      newsSec.append("<h3>Trending News</h3>");
+      for (let i = 0; i < 5; i++) {
+        newsSec.append("<h6> " + data.articles[i].title + "</h6>");
+        newsSec.append("<p> " + data.articles[i].content + "</p>");
+
       }
     })
     .catch((err) => {
       console.error(err);
     });
 }
-
 
 //Get search results for crypto
 function getCryptoSearch(searchValue) {
@@ -177,7 +234,13 @@ function getCryptoSearch(searchValue) {
         "<p> " + "Price: CAD $" + data.market_data.current_price.cad + "</p>"
       );
       srchRes.append("<p>" + data.description.en + "</p>");
+
       srchRes.append("<p> " + "Homepage: " + data.links.homepage + "</p>");
+
+      srchRes.append(
+        "<p> <a href='" + data.links.homepage + "'>Bitcoin Home Page</a></p>"
+      );
+
       srchRes.append("<p> " + "Genesis Date: " + data.genesis_date + "</p>");
     })
     .catch((err) => {
@@ -195,6 +258,9 @@ stockCard.on("click", function (event) {
   changeToStock(event);
 });
 
+
+//This event listener calls for search results depending on button class
+
 btnSearch.on("click", function (event) {
   event.preventDefault();
   var searchTopic = btnSearch.attr("id");
@@ -202,10 +268,13 @@ btnSearch.on("click", function (event) {
     var searchValue = btnSearch.parent().children().eq(0).val().toLowerCase();
     getCryptoSearch(searchValue);
   }
+
  if (searchTopic === "searchstock") {
         var searchValue = btnSearch.parent().children().eq(0).val().toLowerCase();
         getStockSearch(searchValue);
   }
 });
+
+
 
 
