@@ -7,7 +7,9 @@
 }
 
 * {   
-    margin: 0px 0px 0px 0px;
+
+    margin: 0px 2px;
+    padding: 0px;
     border-radius: 10px;
     font-family: 'Playfair Display SC', serif;
   }
@@ -52,6 +54,10 @@
     width: fit-content;
 }
 
+.float-right {
+    float: right;
+}
+
 a,
 h3,
 p {
@@ -66,4 +72,39 @@ a {
 
 h3 {
     height: 30px;
+}
+
+img {
+    height: 200px;
+
+}
+
+.nameTitle {
+    margin: 30px 0px 0px;
+    font-size: 30px;  
+}
+
+.text-box {
+    background: var(--azure);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    font-size: 25px;
+    width: fit-content;
+}
+
+a,
+h3,
+p {
+  height: fit-content;
+  color: var(--pBlue);
+
+}
+
+a {
+    height: 30px;
+}
+
+h3 {
+    height: 30px;
+
 }
