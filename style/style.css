@@ -12,8 +12,10 @@
   border-radius: 10px;
 }
 
+
 header {
     border-bottom: var(--pBlue) 3px solid;
+
 }
 img {
   display: inline-block;
@@ -234,7 +236,4 @@ p {
     height: 450px;
 
 }
-
-
-
 

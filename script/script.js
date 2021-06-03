@@ -261,7 +261,3 @@ btnSearch.on("click", function (event) {
         getStockSearch(searchValue);
   }
 });
-
-
-
-
