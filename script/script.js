@@ -162,7 +162,7 @@ function getCryptoNews() {
       );
       for (let i = 0; i < coinInfo.length; i++) {
         recommend.append(
-          "<div class=><img  class='inline' src='" +
+          "<div class=><img  class='inline 'id ='" + coinInfo[i].item.name + "' src='" +
             coinInfo[i].item.small +
             "'><p class='inline'> " +
             coinInfo[i].item.name +
@@ -263,3 +263,20 @@ btnSearch.on("click", function (event) {
     getStockSearch(searchValue);
   }
 });
+
+
+
+recommend.on("click", function (event) {
+   var clickIcon = event.target.id
+   var searchTopic = btnSearch.attr("id");
+   var searchValue = clickIcon.toLowerCase();
+   if (searchTopic === "searchcrypto") {
+    getCryptoSearch(searchValue);
+  }
+  if (searchTopic === "searchstock") {
+    getStockSearch(searchValue);
+  }
+})
+
+
+
