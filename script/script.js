@@ -6,7 +6,7 @@ var srchRes = $(".searchrlt");
 var recommend = $(".rcmd");
 var newsSec = $(".news")
 
-//change layout to crypto
+//Change layout and button class to crypto
 function changeToCrypto(event) {
   stockCard.removeClass("stockcardlg");
   stockCard.addClass("stockcard");
@@ -35,6 +35,7 @@ function changeToStock(event) {
 
   getStockNews();
 }
+
 
 //Get news feed  and recomendations for crypto
 function getCryptoNews() {
@@ -76,6 +77,8 @@ function getCryptoNews() {
     });
 }
 
+
+
 //Get search results for crypto
 function getCryptoSearch(searchValue) {
   srchRes.children().remove();
@@ -110,6 +113,9 @@ function getCryptoSearch(searchValue) {
       console.error(err);
     });
 }
+
+
+
 
 //This event listener calls to changeToCrypto function
 cryptoCard.on("click", function (event) {
