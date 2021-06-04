@@ -146,7 +146,7 @@ function getStockNews() {
       newsSec.append("<h3>Trending News</h3>");
       for (let i = 0; i < 3; i++) {
         newsSec.append(
-          "<div><h5> " +
+          "<div class='article'><h5> " +
             data.articles[i].title +
             "</h5> <p>" 
             + data.articles[i].description  + " " +"<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
@@ -175,7 +175,7 @@ function getCryptoNews() {
       );
       for (let i = 0; i < coinInfo.length; i++) {
         recommend.append(
-          "<div class=><img  class='inline 'id ='" + coinInfo[i].item.name + "' src='" +
+          "<div class=><img  class='inline' id ='" + coinInfo[i].item.name + "' src='" +
             coinInfo[i].item.small +
             "'><p class='inline'> " +
             coinInfo[i].item.name +
@@ -186,6 +186,7 @@ function getCryptoNews() {
     .catch((err) => {
       console.error(err);
     });
+
   //fetch news section
   newsSec.children().remove();
   fetch(
@@ -199,11 +200,12 @@ function getCryptoNews() {
       newsSec.append("<h3>Trending News</h3>");
       for (let i = 0; i < 5; i++) {
         newsSec.append(
-          "<div><h5> " +
+          "<div class='article'><h5> " +
             data.articles[i].title +
             "</h5> <p>" +
-            + data.articles[i].description  + " " +"<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
+            data.articles[i].description  + "<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
             "</p></br></div> "
+            
         );
       }
     })
@@ -233,7 +235,7 @@ function getCryptoSearch(searchValue) {
     })
     .then(function (data) {
       srchRes.append("<img  src='" + data.image.small + "'>");
-      srchRes.append("<h5 style='margin-left:10px;'> " + data.name + "</h5>");
+      srchRes.append("<h5 > " + data.name + "</h5>");
 
           if (data.market_data.current_price.cad.toString()[1]!==".") {
             srchRes.append(
@@ -325,6 +327,7 @@ function createChartCrypto(searchValue){
 
 
 function createChartStock(searchValue){
+      //fetch data
       fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&symbol=" + searchValue +"&range=1mo&region=CA", {
         "method": "GET",
         "headers": {
