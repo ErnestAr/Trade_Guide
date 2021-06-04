@@ -146,7 +146,7 @@ function getStockNews() {
       newsSec.append("<h3>Trending News</h3>");
       for (let i = 0; i < 3; i++) {
         newsSec.append(
-          "<div><h5> " +
+          "<div class='article'><h5> " +
             data.articles[i].title +
             "</h5> <p>" 
             + data.articles[i].description  + " " +"<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
@@ -175,7 +175,7 @@ function getCryptoNews() {
       );
       for (let i = 0; i < coinInfo.length; i++) {
         recommend.append(
-          "<div class=><img  class='inline 'id ='" + coinInfo[i].item.name + "' src='" +
+          "<div class=><img  class='inline' id ='" + coinInfo[i].item.name + "' src='" +
             coinInfo[i].item.small +
             "'><p class='inline'> " +
             coinInfo[i].item.name +

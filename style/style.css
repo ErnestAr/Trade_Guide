@@ -66,8 +66,19 @@ h6 {
   font-family: "Playfair Display SC", serif;
 }
 p {
-  margin: 0px 10px 0px 10px;
+  
   font-family: "Roboto", sans-serif;
+}
+canvas {
+  width:920px !important;
+  height:400px !important;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  background-color: white;
+  margin-bottom: 10px;
+
 }
 .cards {
   height: 650px;
@@ -83,7 +94,7 @@ p {
   height: 61px;
   left: 25px;
   top: 230px;
-  background: #9fd8cb;
+  background: var(--mbGreen);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   border: none;
@@ -92,7 +103,7 @@ p {
   color: var(--pBlue);
 }
 .btn:hover {
-  background: #9fd8cb;
+  background: var(--mbGreen);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   border: none;
@@ -100,14 +111,14 @@ p {
 }
 
 .btn:active {
-  background: #9fd8cb;
+  background:var(--mbGreen);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   border: none;
 }
 
 .btn:focus {
-  background: #9fd8cb;
+  background: var(--mbGreen);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   border: none;
@@ -161,7 +172,7 @@ p {
   position: relative;
   width: 379px;
   height: 327px;
-  background: #d6e5e3;
+  background:  var(--azure);
   width: 479px;
 }
 
@@ -169,17 +180,17 @@ p {
   height: 327px;
   margin-top: 20px;
   width: 950px;
-  background: #d6e5e3;
+  background:  var(--azure);
   padding: 10px;
 }
 
 .news {
   margin-top: 20px;
   width: 479px;
-  padding: 5px;
+  padding: 5px 10px 10px 10px;
   height: fit-content;
-  background: #d6e5e3;
-  padding-left: 10px;
+  background:  var(--azure);
+  
 }
 
 .rcmd {
@@ -187,7 +198,7 @@ p {
   width: 950px;
   padding: 5px;
   height: fit-content;
-  background: #d6e5e3;
+  background:  var(--azure);
 }
 
 /* Cards */
@@ -216,7 +227,7 @@ p {
 .stockcard {
   width: 377px;
   height: 500px;
-  background: #cacfd6;
+  background: var(--lightGray);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   margin: 20px 10px 0px 10px;
@@ -234,7 +245,7 @@ p {
   width: 464px;
   height: 573px;
   margin: 20px 10px 0px 10px;
-  background: #cacfd6;
+  background:  var(--lightGray);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   transition: var(--ease);
@@ -260,7 +271,7 @@ p {
   opacity: 0.6;
   width: 377px;
   height: 500px;
-  background: #cacfd6;
+  background: var(--lightGray);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   margin: 20px 10px 0px 10px;
@@ -277,7 +288,7 @@ p {
   width: 464px;
   height: 573px;
   margin: 20px 10px 0px 10px;
-  background: #cacfd6;
+  background: var(--lightGray);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   transition: var(--ease);
@@ -303,16 +314,13 @@ p {
   display: inline;
 }
 
-canvas {
-  width:920px !important;
-  height:400px !important;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  background-color: #F3F7F6;
-  margin-bottom: 10px;
 
+
+.article {
+  padding: 5px;
+  padding-top: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border-top: #13293d solid 1px;
+  border-radius: 0px;
 }
-
-
