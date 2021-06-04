@@ -7,13 +7,14 @@ var newsSec = $(".news");
 
 //Change layout and button class to crypto
 function changeToCrypto(event) {
+  srchRes.children().remove();
+  srchRes.append("<h4>Search Results...</h4>")
+  srchRes.css("height", "327px");
   stockCard.removeClass("stockcardlg");
   stockCard.addClass("stockcard");
   cryptoCard.removeClass("cryptocard");
   cryptoCard.addClass("cryptocardlg");
   btnSearch.attr("id", "searchcrypto");
-
-  srchRes.children().remove();
   recommend.children().remove();
 
   getCryptoNews();
@@ -22,13 +23,16 @@ function changeToCrypto(event) {
 //Change to stocks layout and change button class
 //Change layout and button class to stock
 function changeToStock(event) {
+  srchRes.children().remove();
+  srchRes.append("<h4>Search Results...</h4>")
+  srchRes.css("height", "327px");
   stockCard.removeClass("stockcard");
   stockCard.addClass("stockcardlg");
   cryptoCard.removeClass("cryptocardlg");
   cryptoCard.addClass("cryptocard");
   btnSearch.attr("id", "searchstock");
 
-  srchRes.children().remove();
+
   recommend.children().remove();
 
   getStockRecs();
@@ -37,7 +41,9 @@ function changeToStock(event) {
 
 //fetch stock search
 function getStockSearch(searchValue) {
-  
+
+  srchRes.css("height", "fit-content");
+
   srchRes.children().remove();
   fetch(
     "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary?symbol=" +
@@ -74,7 +80,9 @@ function getStockSearch(searchValue) {
         "<p> " + data.summaryProfile.longBusinessSummary + "</p></br>"
       );
       srchRes.append(
-        "<a style='padding-left:10px' href=" +
+
+        "<a style='padding-left:10px; font-size: 25px;' href=" +
+
           data.summaryProfile.website +
           ">Home Page</a>"
           
@@ -107,10 +115,9 @@ function getStockRecs() {
       );
       for (i = 0; i < 7; i++) {
         recommend.append(
-          "<h6 style= 'margin:10px'>" +
+          "<h6 style= 'margin:10px' id='" +data.finance.result[0].quotes[i].symbol+ "'>" +
             data.finance.result[0].quotes[i].symbol +
-            " " +
-            "- " +
+            " - " +
             data.finance.result[0].quotes[i].shortName +
             "</h6><p> $ " +
             (
@@ -141,8 +148,8 @@ function getStockNews() {
         newsSec.append(
           "<div><h5> " +
             data.articles[i].title +
-            "</h5> <p>" +
-            data.articles[i].content +
+            "</h5> <p>" 
+            + data.articles[i].description  + " " +"<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
             "</p></br></div> "
         );
       }
@@ -156,7 +163,7 @@ function getStockNews() {
 function getCryptoNews() {
   //Fetch Top 7 crypto section
   fetch(
-    "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/search/trending"
+    "https://api.coingecko.com/api/v3/search/trending"
   )
     .then((response) => {
       return response.json();
@@ -168,7 +175,7 @@ function getCryptoNews() {
       );
       for (let i = 0; i < coinInfo.length; i++) {
         recommend.append(
-          "<div class=><img  class='inline' src='" +
+          "<div class=><img  class='inline 'id ='" + coinInfo[i].item.name + "' src='" +
             coinInfo[i].item.small +
             "'><p class='inline'> " +
             coinInfo[i].item.name +
@@ -195,7 +202,7 @@ function getCryptoNews() {
           "<div><h5> " +
             data.articles[i].title +
             "</h5> <p>" +
-            data.articles[i].content +
+            + data.articles[i].description  + " " +"<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
             "</p></br></div> "
         );
       }
@@ -207,6 +214,7 @@ function getCryptoNews() {
 
 //Get search results for crypto
 function getCryptoSearch(searchValue) {
+  srchRes.css("height", "fit-content");
   srchRes.children().remove();
   fetch(
     "https://coingecko.p.rapidapi.com/coins/" +
@@ -226,6 +234,7 @@ function getCryptoSearch(searchValue) {
     .then(function (data) {
       srchRes.append("<img  src='" + data.image.small + "'>");
       srchRes.append("<h5 style='margin-left:10px;'> " + data.name + "</h5>");
+
           if (data.market_data.current_price.cad.toString()[1]!==".") {
             srchRes.append(
               "<p> " +
@@ -236,14 +245,22 @@ function getCryptoSearch(searchValue) {
                 "Price: <strong>  $" +data.market_data.current_price.cad + " CAD</p> </br>")
           }
       srchRes.append("<div><canvas id='myChart' ></canvas> </div>")
+
       srchRes.append("<p>" + data.description.en + "</p> </br>");
 
       srchRes.append(
-        "<p> <a href='" + data.links.homepage + "'>Home Page</a></p>"
+        "<p> <a style = 'font-size: 25px; margin-left: 0px;' href='" + data.links.homepage + "'>Home Page</a></p>"
       );
-
+      if(data.genesis_date!==null){
       srchRes.append("<p> " + "Genesis Date: " + data.genesis_date + "</p>");
-      createChartCrypto(searchValue)
+
+      
+
+      } else {
+        srchRes.append("<p> " + "Genesis Date: N/A </p>");
+      }
+    createChartCrypto(searchValue)
+
     })
     .catch((err) => {
       console.error(err);
@@ -399,3 +416,21 @@ btnSearch.on("click", function (event) {
     getStockSearch(searchValue);
   }
 });
+
+
+
+recommend.on("click", function (event) {
+   var clickIcon = event.target.id.replace(/\s/g, '-')
+   var searchTopic = btnSearch.attr("id");
+   var searchValue = clickIcon.toLowerCase();
+   if (searchTopic === "searchcrypto") {
+    getCryptoSearch(searchValue);
+  }
+  if (searchTopic === "searchstock") {
+    getStockSearch(searchValue);
+  }
+})
+
+
+
+$(document).ready(getStockNews(), getStockRecs());
