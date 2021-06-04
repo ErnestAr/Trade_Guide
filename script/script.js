@@ -37,6 +37,7 @@ function changeToStock(event) {
 
 //fetch stock search
 function getStockSearch(searchValue) {
+  
   srchRes.children().remove();
   fetch(
     "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary?symbol=" +
@@ -66,6 +67,9 @@ function getStockSearch(searchValue) {
       var marketPrice = data.price.regularMarketPrice.raw * 1.21;
       marketPrice = marketPrice.toFixed(2);
       srchRes.append("<p> " + "Price: <strong> $" + marketPrice + " CAD" + "</p></br>");
+      
+      srchRes.append("<div><canvas id='myChart' ></canvas> </div>")
+      createChartStock(searchValue);
       srchRes.append(
         "<p> " + data.summaryProfile.longBusinessSummary + "</p></br>"
       );
@@ -73,7 +77,9 @@ function getStockSearch(searchValue) {
         "<a style='padding-left:10px' href=" +
           data.summaryProfile.website +
           ">Home Page</a>"
+          
       );
+      
     })
     .catch((err) => {
       console.error(err);
@@ -223,11 +229,11 @@ function getCryptoSearch(searchValue) {
           if (data.market_data.current_price.cad.toString()[1]!==".") {
             srchRes.append(
               "<p> " +
-                "Price: <strong> CAD $" +data.market_data.current_price.cad + ".00</p> </br>")
+                "Price: <strong>  $" +data.market_data.current_price.cad + ".00 CAD</p> </br>")
           } else {
             srchRes.append(
               "<p> " +
-                "Price: <strong> CAD $" +data.market_data.current_price.cad + "</p> </br>")
+                "Price: <strong>  $" +data.market_data.current_price.cad + " CAD</p> </br>")
           }
       srchRes.append("<div><canvas id='myChart' ></canvas> </div>")
       srchRes.append("<p>" + data.description.en + "</p> </br>");
@@ -237,7 +243,7 @@ function getCryptoSearch(searchValue) {
       );
 
       srchRes.append("<p> " + "Genesis Date: " + data.genesis_date + "</p>");
-      createChart(searchValue)
+      createChartCrypto(searchValue)
     })
     .catch((err) => {
       console.error(err);
@@ -246,7 +252,7 @@ function getCryptoSearch(searchValue) {
 }
 
 
-function createChart(searchValue){
+function createChartCrypto(searchValue){
     fetch(
       "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/" + searchValue + "/market_chart?vs_currency=cad&days=30&interval=daily"
     )
@@ -301,6 +307,65 @@ function createChart(searchValue){
 }
 
 
+function createChartStock(searchValue){
+      fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&symbol=" + searchValue +"&range=1mo&region=CA", {
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-key": "cc1be2c279msh0c79bca34154d17p122150jsn9ba23118deaf",
+          "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+        }
+      })
+      .then((response) => {
+        return response.json();
+      })
+      .then(function (data) {
+        var date = []
+        var prices = []
+        for (let i = 0; i <  data.chart.result[0].timestamp.length; i++) {
+          var priceCad = data.chart.result[0].indicators.quote[0].open[i]*1.21
+          var priceCut = priceCad.toFixed(2)
+          prices.push(priceCut)
+          var unix =data.chart.result[0].timestamp[i]*1000
+          var dateForm =  moment(unix, "x").format("MMM-Do")
+          date.push(dateForm)
+          debugger;
+        }
+        //Chart create
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: date,
+            datasets: [
+              { 
+                data: prices,
+                label: searchValue.charAt(0).toUpperCase() + searchValue.slice(1),
+                borderColor: "#9FD8CB",
+                fill: "#CACFD6"
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: '1 Week (CAD)'
+              }
+              
+            },
+            tension: 0,
+          },
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+}
 
 
 
