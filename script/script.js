@@ -41,7 +41,9 @@ function changeToStock(event) {
 
 //fetch stock search
 function getStockSearch(searchValue) {
+
   srchRes.css("height", "fit-content");
+
   srchRes.children().remove();
   fetch(
     "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary?symbol=" +
@@ -70,7 +72,10 @@ function getStockSearch(searchValue) {
       srchRes.append("<p> " + data.quoteType.longName + "</p>");
       var marketPrice = data.price.regularMarketPrice.raw * 1.21;
       marketPrice = marketPrice.toFixed(2);
-      srchRes.append("<p> " + "Price: $" + marketPrice + " CAD" + "</p></br>");
+      srchRes.append("<p> " + "Price: <strong> $" + marketPrice + " CAD" + "</p></br>");
+      
+      srchRes.append("<div><canvas id='myChart' ></canvas> </div>")
+      createChartStock(searchValue);
       srchRes.append(
         "<p> " + data.summaryProfile.longBusinessSummary + "</p></br>"
       );
@@ -80,7 +85,9 @@ function getStockSearch(searchValue) {
 
           data.summaryProfile.website +
           ">Home Page</a>"
+          
       );
+      
     })
     .catch((err) => {
       console.error(err);
@@ -227,12 +234,18 @@ function getCryptoSearch(searchValue) {
     .then(function (data) {
       srchRes.append("<img  src='" + data.image.small + "'>");
       srchRes.append("<h5 style='margin-left:10px;'> " + data.name + "</h5>");
-      srchRes.append(
-        "<p> " +
-          "Price: CAD $" +
-          data.market_data.current_price.cad +
-          "</p> </br>"
-      );
+
+          if (data.market_data.current_price.cad.toString()[1]!==".") {
+            srchRes.append(
+              "<p> " +
+                "Price: <strong>  $" +data.market_data.current_price.cad + ".00 CAD</p> </br>")
+          } else {
+            srchRes.append(
+              "<p> " +
+                "Price: <strong>  $" +data.market_data.current_price.cad + " CAD</p> </br>")
+          }
+      srchRes.append("<div><canvas id='myChart' ></canvas> </div>")
+
       srchRes.append("<p>" + data.description.en + "</p> </br>");
 
       srchRes.append(
@@ -240,14 +253,143 @@ function getCryptoSearch(searchValue) {
       );
       if(data.genesis_date!==null){
       srchRes.append("<p> " + "Genesis Date: " + data.genesis_date + "</p>");
+
+      
+
       } else {
         srchRes.append("<p> " + "Genesis Date: N/A </p>");
       }
+    createChartCrypto(searchValue)
+
     })
     .catch((err) => {
       console.error(err);
     });
+
 }
+
+
+function createChartCrypto(searchValue){
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/" + searchValue + "/market_chart?vs_currency=cad&days=30&interval=daily"
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then(function (data) {
+        var dataPrices = data.prices
+        var prices =[]
+        var date = []
+        for (let i = 0; i < dataPrices.length; i++) {
+          prices.push(dataPrices[i][1].toFixed(2)) 
+          var unix =(dataPrices[i][0])
+          var dateForm =  moment(unix, "x").format("MMM-Do")
+          date.push(dateForm)
+        }
+          var ctx = document.getElementById("myChart");
+          var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: date,
+              datasets: [
+                { 
+                  data: prices,
+                  label: searchValue.charAt(0).toUpperCase() + searchValue.slice(1),
+                  borderColor: "#9FD8CB",
+                  fill: "#CACFD6"
+                }
+              ]
+            },
+            options: {
+              responsive: true,
+              
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'top',
+                },
+                title: {
+                  display: true,
+                  text: '1 Week (CAD)'
+                }
+                
+              },
+              tension: 0,
+            },
+          });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+}
+
+
+function createChartStock(searchValue){
+      fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&symbol=" + searchValue +"&range=1mo&region=CA", {
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-key": "cc1be2c279msh0c79bca34154d17p122150jsn9ba23118deaf",
+          "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+        }
+      })
+      .then((response) => {
+        return response.json();
+      })
+      .then(function (data) {
+        var date = []
+        var prices = []
+        for (let i = 0; i <  data.chart.result[0].timestamp.length; i++) {
+          var priceCad = data.chart.result[0].indicators.quote[0].open[i]*1.21
+          var priceCut = priceCad.toFixed(2)
+          prices.push(priceCut)
+          var unix =data.chart.result[0].timestamp[i]*1000
+          var dateForm =  moment(unix, "x").format("MMM-Do")
+          date.push(dateForm)
+          debugger;
+        }
+        //Chart create
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: date,
+            datasets: [
+              { 
+                data: prices,
+                label: searchValue.charAt(0).toUpperCase() + searchValue.slice(1),
+                borderColor: "#9FD8CB",
+                fill: "#CACFD6"
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: '1 Week (CAD)'
+              }
+              
+            },
+            tension: 0,
+          },
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+}
+
+
+
+
+
+
+
 
 //This event listener calls to changeToCrypto function
 cryptoCard.on("click", function (event) {
@@ -266,6 +408,7 @@ btnSearch.on("click", function (event) {
   if (searchTopic === "searchcrypto") {
     var searchValue = btnSearch.parent().children().eq(0).val().toLowerCase();
     getCryptoSearch(searchValue);
+    
   }
 
   if (searchTopic === "searchstock") {

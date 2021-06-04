@@ -20,7 +20,7 @@ header {
 img {
   display: inline-block;
   margin: 5px;
-  margin-left: 5px;
+  margin-left: 10px;
   margin-top: 10px;
   border: 4px solid var(--lightGray);
   border-radius: 5px;
@@ -40,6 +40,7 @@ p {
   height: fit-content;
   color: var(--pBlue);
 }
+
 
 a:hover {
   color: var(--pBlue);
@@ -301,3 +302,17 @@ p {
 .inline {
   display: inline;
 }
+
+canvas {
+  width:920px !important;
+  height:400px !important;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  background-color: #F3F7F6;
+  margin-bottom: 10px;
+
+}
+
+
