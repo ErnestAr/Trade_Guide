@@ -226,6 +226,7 @@ function getCryptoSearch(searchValue) {
           data.market_data.current_price.cad +
           "</p> </br>"
       );
+      srchRes.append("<div><canvas id='myChart' ></canvas> </div>")
       srchRes.append("<p>" + data.description.en + "</p> </br>");
 
       srchRes.append(
@@ -233,15 +234,16 @@ function getCryptoSearch(searchValue) {
       );
 
       srchRes.append("<p> " + "Genesis Date: " + data.genesis_date + "</p>");
+      createChart(searchValue)
     })
     .catch((err) => {
       console.error(err);
     });
+
 }
 
 
 function createChart(searchValue){
-    //Fetch Top 7 crypto section
     fetch(
       "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/" + searchValue + "/market_chart?vs_currency=cad&days=7&interval=daily"
     )
@@ -253,14 +255,41 @@ function createChart(searchValue){
         var prices =[]
         var date = []
         for (let i = 0; i < dataPrices.length; i++) {
-          prices.push(dataPrices[i][0]) 
-          var unix = moment( dataPrices[i][1], "x").format("MMM Do")
-          date.push(unix)
-          
+          prices.push(dataPrices[i][1].toFixed(2)) 
+          var unix =(dataPrices[i][0])
+          var dateForm =  moment(unix, "x").format("MMM-Do")
+          date.push(dateForm)
         }
-        console.log(prices);
-        console.log(date);
-
+          var ctx = document.getElementById("myChart");
+          var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: date,
+              datasets: [
+                { 
+                  data: prices,
+                  label: searchValue.charAt(0).toUpperCase() + searchValue.slice(1),
+                  borderColor: "#9fd8cb",
+                  fill: "#cacfd6"
+                }
+            
+              ]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: 'top',
+                },
+                title: {
+                  display: true,
+                  text: '1 Week (CAD)'
+                }
+                
+              },
+              tension: 0,
+            },
+          });
       })
       .catch((err) => {
         console.error(err);
@@ -268,32 +297,10 @@ function createChart(searchValue){
 }
 
 
-var y_coordinate = [1,4,5,6,7,8,5,3,4,6];
-var y_coordinate_1 = [3,6,8,7,5,4,3,6];
-var x_coordinate = ["braw", "brahh", "brahhhhh"]
-//this function creates chart 
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: x_coordinate,
-    datasets: [
-      { 
-        data: y_coordinate,
-        label: "Name here",
-        borderColor: "#9fd8cb",
-        fill: "#cacfd6"
-      },
-      { 
-        data: y_coordinate_1,
-        label: "Name here1",
-        borderColor: "#9fd8cb",
-        fill: "#cacfd6"
-      }
-    ]
-  }
-});
-//create the chart
+
+
+
+
 
 
 
@@ -315,7 +322,7 @@ btnSearch.on("click", function (event) {
   if (searchTopic === "searchcrypto") {
     var searchValue = btnSearch.parent().children().eq(0).val().toLowerCase();
     getCryptoSearch(searchValue);
-    createChart(searchValue)
+    
   }
 
   if (searchTopic === "searchstock") {
