@@ -219,12 +219,12 @@ function getCryptoSearch(searchValue) {
     })
     .then(function (data) {
       srchRes.append("<img  src='" + data.image.small + "'>");
-      srchRes.append("<h5 style='margin-left:5px;'> " + data.name + "</h5>");
+      srchRes.append("<h5 style='margin-left:10px;'> " + data.name + "</h5>");
       srchRes.append(
         "<p> " +
-          "Price: CAD $" +
+          "Price: <strong> CAD $" +
           data.market_data.current_price.cad +
-          "</p> </br>"
+          ".00</p> </br>"
       );
       srchRes.append("<div><canvas id='myChart' ></canvas> </div>")
       srchRes.append("<p>" + data.description.en + "</p> </br>");
@@ -245,7 +245,7 @@ function getCryptoSearch(searchValue) {
 
 function createChart(searchValue){
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/" + searchValue + "/market_chart?vs_currency=cad&days=7&interval=daily"
+      "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/" + searchValue + "/market_chart?vs_currency=cad&days=30&interval=daily"
     )
       .then((response) => {
         return response.json();
@@ -269,14 +269,15 @@ function createChart(searchValue){
                 { 
                   data: prices,
                   label: searchValue.charAt(0).toUpperCase() + searchValue.slice(1),
-                  borderColor: "#9fd8cb",
-                  fill: "#cacfd6"
+                  borderColor: "#9FD8CB",
+                  fill: "#CACFD6"
                 }
-            
               ]
             },
             options: {
               responsive: true,
+              
+              maintainAspectRatio: false,
               plugins: {
                 legend: {
                   position: 'top',
