@@ -141,7 +141,7 @@ function getStockNews() {
         newsSec.append(
           "<div><h5> " +
             data.articles[i].title +
-            "</h5> <p>" +
+            "</h5> <p>" 
             + data.articles[i].description  + " " +"<a href=" + data.articles[i].url + ">" + "Read more." + "</a>" + 
             "</p></br></div> "
         );
