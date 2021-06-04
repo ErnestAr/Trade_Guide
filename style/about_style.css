@@ -45,6 +45,8 @@
 }
 
 a,
+h1,
+h2,
 h3,
 p {
   height: fit-content;
@@ -53,7 +55,7 @@ p {
 }
 
 p {
-    margin: 0px 10px 0px 10px;
+    margin: 0px 10px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -70,13 +72,13 @@ footer {
     font-size: 20px;
 }
 
-article {
-    width: 100vw;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+main {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 22%;
+    margin-bottom: 30px;
+    
+
 }
 
 .about-cards {
@@ -105,7 +107,7 @@ article {
 
 .card-image {
     grid-area: image;
-    background-image: url("Portrait_Placeholder.png");
+    background: url("../images/Portrait_Placeholder.png");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
@@ -117,6 +119,7 @@ article {
 }
 
 .card-text p {
+    margin: 0px;
     color: black;
     font-size: 20px;
     border-radius: 8px;
@@ -124,7 +127,7 @@ article {
 }
 
 .card-text h3 {
-    margin-top: 0px;
+    margin: 0px 0px 5px;
     font-size: 28px
 
 }
