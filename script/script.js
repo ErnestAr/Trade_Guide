@@ -240,6 +240,33 @@ function getCryptoSearch(searchValue) {
 }
 
 
+function createChart(searchValue){
+    //Fetch Top 7 crypto section
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/" + searchValue + "/market_chart?vs_currency=cad&days=7&interval=daily"
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then(function (data) {
+        var dataPrices = data.prices
+        var prices =[]
+        var date = []
+        for (let i = 0; i < dataPrices.length; i++) {
+          prices.push(dataPrices[i][0]) 
+          var unix = moment( dataPrices[i][1], "x").format("MMM Do")
+          date.push(unix)
+          
+        }
+        console.log(prices);
+        console.log(date);
+
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+}
+
 
 var y_coordinate = [1,4,5,6,7,8,5,3,4,6];
 var y_coordinate_1 = [3,6,8,7,5,4,3,6];
@@ -288,6 +315,7 @@ btnSearch.on("click", function (event) {
   if (searchTopic === "searchcrypto") {
     var searchValue = btnSearch.parent().children().eq(0).val().toLowerCase();
     getCryptoSearch(searchValue);
+    createChart(searchValue)
   }
 
   if (searchTopic === "searchstock") {
