@@ -65,7 +65,7 @@ function getStockSearch(searchValue) {
       srchRes.append("<p> " + data.quoteType.longName + "</p>");
       var marketPrice = data.price.regularMarketPrice.raw * 1.21;
       marketPrice = marketPrice.toFixed(2);
-      srchRes.append("<p> " + "Price: $" + marketPrice + " CAD" + "</p></br>");
+      srchRes.append("<p> " + "Price: <strong> $" + marketPrice + " CAD" + "</p></br>");
       srchRes.append(
         "<p> " + data.summaryProfile.longBusinessSummary + "</p></br>"
       );
@@ -220,12 +220,15 @@ function getCryptoSearch(searchValue) {
     .then(function (data) {
       srchRes.append("<img  src='" + data.image.small + "'>");
       srchRes.append("<h5 style='margin-left:10px;'> " + data.name + "</h5>");
-      srchRes.append(
-        "<p> " +
-          "Price: <strong> CAD $" +
-          data.market_data.current_price.cad +
-          ".00</p> </br>"
-      );
+          if (data.market_data.current_price.cad.toString()[1]!==".") {
+            srchRes.append(
+              "<p> " +
+                "Price: <strong> CAD $" +data.market_data.current_price.cad + ".00</p> </br>")
+          } else {
+            srchRes.append(
+              "<p> " +
+                "Price: <strong> CAD $" +data.market_data.current_price.cad + "</p> </br>")
+          }
       srchRes.append("<div><canvas id='myChart' ></canvas> </div>")
       srchRes.append("<p>" + data.description.en + "</p> </br>");
 
