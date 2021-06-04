@@ -235,7 +235,7 @@ function getCryptoSearch(searchValue) {
     })
     .then(function (data) {
       srchRes.append("<img  src='" + data.image.small + "'>");
-      srchRes.append("<h5 style='margin-left:10px;'> " + data.name + "</h5>");
+      srchRes.append("<h5 > " + data.name + "</h5>");
 
           if (data.market_data.current_price.cad.toString()[1]!==".") {
             srchRes.append(
