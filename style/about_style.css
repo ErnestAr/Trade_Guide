@@ -7,7 +7,9 @@
 }
 
 * {   
-    margin: 0px 0px 0px 0px;
+  
+    margin: 0px 2px;
+    padding: 0px;
     border-radius: 10px;
     font-family: 'Playfair Display SC', serif;
   }
@@ -37,6 +39,7 @@
 .subTitle {
     margin: 0px;
     font-size: 45px;  
+
 }
 
 .nameTitle {
@@ -50,6 +53,10 @@
     border-radius: 5px;
     font-size: 25px;
     width: fit-content;
+}
+
+.float-right {
+    float: right;
 }
 
 a,
@@ -66,4 +73,10 @@ a {
 
 h3 {
     height: 30px;
+
+}
+
+img {
+    height: 200px;
+
 }

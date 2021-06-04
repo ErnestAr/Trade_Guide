@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Roboto&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/style.css">
     <title>Trade Guide</title>
 </head>
+
 <body>
     <header>
         <nav class="navbar row justify-content-end " id="navbar">
-            <a class="col-1" href="http://">Home</a>
-            <a class=" col-1" href="http://">About</a>
+            <a class="col-1" href="index.html">Home</a>
+            <a class=" col-1" href="about.html">About</a>
         </nav>
         <section class="cards row justify-content-center">
             <div class=" stockcardlg" id="stockcard">
-                <h3 >Stocks</h3>
-                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae semper a bibendum molestie tincidunt sit aliquet tellus hendrerit.</p>   
+                <h3>Stocks</h3>
+                <!-- source: https://www.investopedia.com/terms/s/stock.asp-->
+                <!--source: https://www.paypal.com/us/smarthelp/article/FAQ4399-->
+                <p style="padding:20px;">A stock represents a share in ownership or equity of a corporation. Stock owners are entitled to a portion of the corporation’s assets and earnings. The portion depends on how much shares of that stock are owned. <br> <br> The stock market is regulated by federal agencies such as, the US Securities and Exchanges Commission (SEC). <br> <br> The stock market is operational from Monday to Friday, 9:30AM EST to 4:00PM EST. </p>
             </div>
-            <div  class="cryptocard"  id ="cryptocard">
+            <div class="cryptocard" id="cryptocard">
                 <h3>Crypto</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae semper a bibendum molestie tincidunt sit aliquet tellus hendrerit.</p>                
+
+                <!-- source: https://www.nerdwallet.com/article/investing/cryptocurrency-7-things-to-know-->
+                <!--source: https://www.paypal.com/us/smarthelp/article/FAQ4399-->
+                <p style="padding:20px;">Cryptocurrency (or “crypto”) is a digital currency that is bought using real currency, and can be used to purchase goods and services. <br> <br> There are no governing bodies or central authority regulating the cryptocurrency market. <br> <br> The cryptocurrency market is operational 24/7, 365 days a year.   </p>
             </div>
         </section>
     </header>
@@ -38,13 +46,14 @@
                 </form>
             </div>
             <div class="news">
-                
+
             </div>
         </section>
         <section class="asideright col-7">
             <div class="searchrlt">
+                <h4>Search Results...</h4>
             </div>
-            <div class="rcmd">               
+            <div class="rcmd">
             </div>
         </section>
     </main>
@@ -59,5 +68,5 @@
         crossorigin="anonymous"></script>
     <script src="./script/script.js"></script>
 </body>
-</html>
 
+</html>
