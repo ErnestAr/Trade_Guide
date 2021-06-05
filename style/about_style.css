@@ -9,6 +9,136 @@
 * {   
     font-family: 'Playfair Display SC', serif;
 }
+
+
+a,
+h1,
+h2,
+h3,
+p {
+  height: fit-content;
+  color: var(--pBlue);
+
+}
+
+p {
+    margin: 0px 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    height: 30px;
+}
+
+h3 {
+    height: 30px;
+}
+
+footer {
+    text-align: center;
+    font-size: 20px;
+}
+
+main {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 22%;
+    margin-bottom: 30px;
+    
+
+}
+
+.about-cards {
+   margin: 25px;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    background: var(--mbGreen);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+
+    transition: 0.5s ease;
+  }
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+}
+
+.card-image {
+    grid-area: image;
+    background: url("../images/Kevin-avatar.png");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    margin-bottom: -40px;
+}
+
+/* Analia's Avatar */
+.card-image.analia {
+    grid-area: image;
+    background: url("../images/Analia-avatar.png");
+    background-size: cover;
+}
+
+/* Ernest's Avatar */
+.card-image.ernest {
+    grid-area: image;
+    background: url("../images/Ernest-avatar.png");
+    background-size: cover;
+}
+
+.card-text {
+    grid-area: text;
+    margin: 25px;    
+}
+
+.card-text p {
+    margin: 0px;
+    color: black;
+    font-size: 20px;
+    border-radius: 8px;
+    background: var(--azure);    
+}
+
+.card-text h3 {
+    margin: 0px 0px 5px;
+    font-size: 28px
+
+}
+
+.card-contact {
+    grid-area: stats; 
+    display: flex;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: var(--dLiver);
+}
+
+.card-contact .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: stretch;
+
+    color: white;
+    padding:10px;
+}
+
+.card-text {
+    grid-area: text;
+    margin: 25px;    
+}
 .navbar {
     height: 80px;
     background-color: var(--azure);
@@ -42,119 +172,6 @@
     border-radius: 5px;
     font-size: 25px;
     width: fit-content;
-}
-
-a,
-h3,
-p {
-  height: fit-content;
-  color: var(--pBlue);
-
-}
-
-p {
-    margin: 0px 10px 0px 10px;
-    font-family: 'Roboto', sans-serif;
-}
-
-a {
-    height: 30px;
-}
-
-h3 {
-    height: 30px;
-}
-
-footer {
-    text-align: center;
-    font-size: 20px;
-}
-
-article {
-    width: 100vw;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.about-cards {
-   margin: 25px;
-}
-
-.card {
-    display: grid;
-    grid-template-columns: 300px;
-    grid-template-rows: 210px 210px 80px;
-    grid-template-areas: "image" "text" "stats";
-  
-    border-radius: 18px;
-    background: var(--mbGreen);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-    font-family: roboto;
-    text-align: center;
-
-    transition: 0.5s ease;
-  }
-
-.card:hover {
-    transform: scale(1.1);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-}
-
-.card-image {
-    grid-area: image;
-    background-image: url("Portrait_Placeholder.png");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: cover;
-}
-
-.card-text {
-    grid-area: text;
-    margin: 25px;    
-}
-
-.card-text p {
-    color: black;
-    font-size: 20px;
-    border-radius: 8px;
-    background: var(--azure);    
-}
-
-.card-text h3 {
-    margin-top: 0px;
-    font-size: 28px
-
-}
-
-.card-contact {
-    grid-area: stats; 
-    display: flex;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-      
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background: var(--dLiver);
-}
-
-.card-contact .contact {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    justify-content: stretch;
-
-    color: white;
-    padding:10px;
-}
-
-.card-text {
-    grid-area: text;
-    margin: 25px;    
 }
 
 /* Img icons */
