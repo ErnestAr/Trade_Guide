@@ -16,7 +16,11 @@ function changeToCrypto(event) {
   cryptoCard.addClass("cryptocardlg");
   btnSearch.attr("id", "searchcrypto");
   recommend.children().remove();
-
+  if (localStorage.getItem("lastcrypto")!==null) {
+    $(".lastsrch").text( "Recent Input: "  + localStorage.getItem("lastcrypto"))
+  } else {
+    $(".lastsrch").css("display", "none")
+  }
   getCryptoNews();
 }
 
@@ -31,10 +35,12 @@ function changeToStock(event) {
   cryptoCard.removeClass("cryptocardlg");
   cryptoCard.addClass("cryptocard");
   btnSearch.attr("id", "searchstock");
-
-
   recommend.children().remove();
-
+  if (localStorage.getItem("laststock")!==null) {
+    $(".lastsrch").text( "Recent Input: "  + localStorage.getItem("laststock"))
+  } else {
+    $(".lastsrch").css("display", "none")
+  }
   getStockRecs();
   getStockNews();
 }
@@ -81,7 +87,7 @@ function getStockSearch(searchValue) {
       srchRes.append(
           "<p> <a style = 'font-size: 25px; margin-left: 0px;' href='" + data.summaryProfile.website + "'>Home Page</a></p>"
       )
-          
+      localStorage.setItem("laststock",  data.symbol)    
       
     })
     .catch((err) => {
@@ -188,6 +194,7 @@ function getCryptoNews() {
             "</p> </div>"
         );
       }
+      
     })
     .catch((err) => {
       console.error(err);
@@ -264,7 +271,7 @@ function getCryptoSearch(searchValue) {
         srchRes.append("<p> " + "Genesis Date: N/A </p>");
       }
     createChartCrypto(searchValue)
-
+      localStorage.setItem("lastcrypto", data.name)
     })
     .catch((err) => {
       console.error(err);
@@ -441,4 +448,6 @@ recommend.on("click", function (event) {
 
 
 
-$(document).ready(getStockNews(), getStockRecs());
+$(document).ready(changeToStock());
+
+

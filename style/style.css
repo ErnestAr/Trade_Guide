@@ -326,3 +326,12 @@ canvas {
   border-top: #13293d solid 1px;
   border-radius: 0px;
 }
+
+.lastsrch {
+  height: fit-content;
+  background-color: var(--azure);
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  width: 479px;
+}
