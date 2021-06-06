@@ -1,5 +1,11 @@
 # Trade_Guide
  Trading Guide for Stocks and Crypto
+ 
+ ## Website's Functionality:
+ 
+ 
+ ## Website's Screenshots:
+ 
 
 ## Languages and resources
 1. Javascript
@@ -14,7 +20,7 @@
 10. Coingeko API
 11. Yahoo Finance API
 12. GNews API
-## Collabarations:
+## Collaborations:
 AnaMolly, kcrawford101
 ## License:
 Copyright <2021> <ErnestAr, AnaMolly, kcrawford101>
