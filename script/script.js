@@ -43,7 +43,6 @@ function changeToStock(event) {
 function getStockSearch(searchValue) {
 
   srchRes.css("height", "fit-content");
-
   srchRes.children().remove();
   fetch(
     "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary?symbol=" +
@@ -52,7 +51,7 @@ function getStockSearch(searchValue) {
     {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "cc1be2c279msh0c79bca34154d17p122150jsn9ba23118deaf",
+        "x-rapidapi-key": "8b17728432mshba3ee6ce5f02d4ep1b54b8jsne29ee33b766f",
         "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
       },
     }
@@ -80,28 +79,28 @@ function getStockSearch(searchValue) {
         "<p> " + data.summaryProfile.longBusinessSummary + "</p></br>"
       );
       srchRes.append(
-
-        "<a style='padding-left:10px; font-size: 25px;' href=" +
-
-          data.summaryProfile.website +
-          ">Home Page</a>"
+          "<p> <a style = 'font-size: 25px; margin-left: 0px;' href='" + data.summaryProfile.website + "'>Home Page</a></p>"
+      )
           
-      );
       
     })
     .catch((err) => {
       console.error(err);
+      srchRes.children().remove()
+      srchRes.append("<h4>Search Results...</h4><p>Unable to complete request at the momement. Please try again later.</p>")
+      srchRes.height("310px");
     });
 }
 
 //fetch recommended stocks
 function getStockRecs() {
+  recommend.height("fit-content")
   fetch(
     "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-recommendations?symbol=INTC",
     {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "cc1be2c279msh0c79bca34154d17p122150jsn9ba23118deaf",
+        "x-rapidapi-key": "8b17728432mshba3ee6ce5f02d4ep1b54b8jsne29ee33b766f",
         "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
       },
     }
@@ -113,13 +112,13 @@ function getStockRecs() {
       recommend.append(
         "<h3 style= 'margin:10px; padding-top:5px'> Top 5 Recommended Stocks <h2/>"
       );
-      for (i = 0; i < 7; i++) {
+      for (i = 0; i <data.finance.result[0].quotes.length; i++) {
         recommend.append(
-          "<h6 style= 'margin:10px' id='" +data.finance.result[0].quotes[i].symbol+ "'>" +
+          "<h6 style= 'margin:10px' id='" + data.finance.result[0].quotes[i].symbol + "'>" +
             data.finance.result[0].quotes[i].symbol +
             " - " +
             data.finance.result[0].quotes[i].shortName +
-            "</h6><p> $ " +
+            "</h6><p style= 'margin-left:10px'> $ " +
             (
               data.finance.result[0].quotes[i].regularMarketPrice * 1.21
             ).toFixed(2) +
@@ -129,12 +128,17 @@ function getStockRecs() {
     })
     .catch((err) => {
       console.error(err);
+      recommend.height("310px")
+      recommend.append(
+        "<p style='margin-left:10px'>Unable to complete request at the momement. Please try again later.</p>"
+      );
     });
 }
 
 //fetch stock news
 function getStockNews() {
   newsSec.children().remove();
+  newsSec.height("fit-content")
   fetch(
     "https://gnews.io/api/v4/search?q=stocks&token=45a93e37179e59245a6328124c1b7c89"
   )
@@ -142,8 +146,7 @@ function getStockNews() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      newsSec.append("<h3>Trending News</h3>");
+      newsSec.append("<h3 style='margin-top: 15px'>Trending News</h3>");
       for (let i = 0; i < 3; i++) {
         newsSec.append(
           "<div class='article'><h5> " +
@@ -156,12 +159,15 @@ function getStockNews() {
     })
     .catch((err) => {
       console.error(err);
+      newsSec.height("310px")
+      newsSec.append("<p>Unable to complete request at the momement. Please try again later.</p>")
     });
 }
 
 //Get news feed  and recomendations for crypto
 function getCryptoNews() {
   //Fetch Top 7 crypto section
+  recommend.height("fit-content")
   fetch(
     "https://api.coingecko.com/api/v3/search/trending"
   )
@@ -185,19 +191,25 @@ function getCryptoNews() {
     })
     .catch((err) => {
       console.error(err);
+      recommend.height("310px")
+      recommend.append(
+        "<p style='margin-left:10px'>Unable to complete request at the momement. Please try again later.</p>"
+      );
+      
     });
 
   //fetch news section
   newsSec.children().remove();
+  newsSec.height("fit-content")
   fetch(
-    "https://cors-anywhere.herokuapp.com/https://gnews.io/api/v4/search?q=cryptocurrency&token=08ddb227701538687b737079c4e03f8e"
+    "https://gnews.io/api/v4/search?q=cryptocurrency&token=08ddb227701538687b737079c4e03f8e"
   )
     .then((response) => {
       return response.json();
     })
     .then(function (data) {
       var coinInfo = data.coins;
-      newsSec.append("<h3>Trending News</h3>");
+      newsSec.append("<h3 style='margin-top: 15px'>Trending News</h3>");
       for (let i = 0; i < 5; i++) {
         newsSec.append(
           "<div class='article'><h5> " +
@@ -211,6 +223,8 @@ function getCryptoNews() {
     })
     .catch((err) => {
       console.error(err);
+      newsSec.height("310px")
+      newsSec.append("<p>Unable to complete request at the momement. Please try again later.</p>")
     });
 }
 
@@ -218,25 +232,13 @@ function getCryptoNews() {
 function getCryptoSearch(searchValue) {
   srchRes.css("height", "fit-content");
   srchRes.children().remove();
-  fetch(
-    "https://coingecko.p.rapidapi.com/coins/" +
-      searchValue +
-      "?localization=true&tickers=true&market_data=true&community_data=true&developer_data=true&sparkline=false",
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "8b17728432mshba3ee6ce5f02d4ep1b54b8jsne29ee33b766f",
-        "x-rapidapi-host": "coingecko.p.rapidapi.com",
-      },
-    }
-  )
+  fetch( "https://api.coingecko.com/api/v3/coins/" + searchValue)
     .then((response) => {
       return response.json();
     })
     .then(function (data) {
       srchRes.append("<img  src='" + data.image.small + "'>");
       srchRes.append("<h5 > " + data.name + "</h5>");
-
           if (data.market_data.current_price.cad.toString()[1]!==".") {
             srchRes.append(
               "<p> " +
@@ -266,6 +268,9 @@ function getCryptoSearch(searchValue) {
     })
     .catch((err) => {
       console.error(err);
+      srchRes.children().remove()
+      srchRes.append("<h4>Search Results...</h4><p>Unable to complete request at the momement. Please try again later.</p>")
+      srchRes.height("309px");
     });
 
 }
@@ -273,7 +278,7 @@ function getCryptoSearch(searchValue) {
 
 function createChartCrypto(searchValue){
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/" + searchValue + "/market_chart?vs_currency=cad&days=30&interval=daily"
+      "https://api.coingecko.com/api/v3/coins/" + searchValue + "/market_chart?vs_currency=cad&days=30&interval=daily"
     )
       .then((response) => {
         return response.json();
@@ -331,7 +336,7 @@ function createChartStock(searchValue){
       fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&symbol=" + searchValue +"&range=1mo&region=CA", {
         "method": "GET",
         "headers": {
-          "x-rapidapi-key": "cc1be2c279msh0c79bca34154d17p122150jsn9ba23118deaf",
+          "x-rapidapi-key": "8b17728432mshba3ee6ce5f02d4ep1b54b8jsne29ee33b766f",
           "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
         }
       })
