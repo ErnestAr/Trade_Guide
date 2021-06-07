@@ -5,14 +5,14 @@
  
  ## Website's Functionality:
  1. User presented with choice of two mainstream investment options crypto and stock.
- 2. When Stock option  is selected, page displays trending news using gnews API and Recommendations from Yfinance API.
+ 2. When Stock option  is selected, page displays trending news using Gnews API and Recommendations from Yahoo Finance API.
  3. When one of the recommendations is clicked of search input entered, webpage gives last month's price chart for the item, as well as 
-decription, current price and a home page link of the company.
- 4.  When Crypto option is selected, page displays trending news using gnews API and Recommendations from coingecko API.
+description, current price and a home page link of the company.
+ 4.  When Crypto option is selected, page displays trending news using Gnews API and Recommendations from CoinGecko API.
  5. When one of the recommendations is clicked of search input entered, webpage gives last month's price chart for the item, as well as 
-decription, current price and a home page link of the cryptocurrency, and creation date.
-6. News section provides linkes to the source of each article.
-7. User is presented with resent search results, depending on chosen layout(crypto,Stock)
+description, current price and a home page link of the cryptocurrency, and creation date.
+6. News section provides links to the source of each article.
+7. User is presented with recent search results, depending on chosen layout(crypto,Stock)
 8. If user enters unknown item or api is not available, correlating section will display "please try later" text.
 9. About page provides user with information about the team who worked on the project and contact information.
  
@@ -32,16 +32,16 @@ decription, current price and a home page link of the cryptocurrency, and creati
 
 
 ## Languages and resources
-1. Javascript
+1. JavaScript
 2. HTML
 3. CSS
-4. Bootstarp
+4. Bootstrap
 5. jQuery
 6. Moment.js
 7. Chart.js
-8. Tailwind
+8. Tailwind CSS
 9. Google Fonts
-10. Coingeko API
+10. CoinGeko API
 11. Yahoo Finance API
 12. GNews API
 ## Collaborations:
