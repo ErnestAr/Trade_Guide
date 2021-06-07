@@ -15,6 +15,9 @@ decription, current price and a home page link of the cryptocurrency, and creati
 7. User is presented with resent search results, depending on chosen layout(crypto,Stock)
 8. If user enters unknown item or api is not available, correlating section will display "please try later" text.
 9. About page provides user with information about the team who worked on the project and contact information.
+ 
+## Development Wireframe
+![image](https://user-images.githubusercontent.com/82740498/120944561-2b498580-c703-11eb-9bb9-8a5a7a690257.png)
 
 
  
