@@ -17,46 +17,58 @@
 
 <body>
     <header>
-        <nav class="navbar row justify-content-end " id="navbar">
-            <a class="col-1" href="index.html">Home</a>
-            <a class=" col-1" href="about.html">About</a>
+        <nav class="navbar row justify-content-center sticky-top" id="navbar">
         </nav>
-        <section class="cards row justify-content-center">
-            <div class=" stockcardlg" id="stockcard">
-                <h3>Stocks</h3>
-                <!-- source: https://www.investopedia.com/terms/s/stock.asp-->
-                <!--source: https://www.paypal.com/us/smarthelp/article/FAQ4399-->
-                <p style="padding:20px;">A stock represents a share in ownership or equity of a corporation. Stock owners are entitled to a portion of the corporation’s assets and earnings. The portion depends on how much shares of that stock are owned. <br> <br> The stock market is regulated by federal agencies such as, the US Securities and Exchanges Commission (SEC). <br> <br> The stock market is operational from Monday to Friday, 9:30AM EST to 4:00PM EST. </p>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="cryptocard" id="cryptocard">
-                <h3>Crypto</h3>
-
-                <!-- source: https://www.nerdwallet.com/article/investing/cryptocurrency-7-things-to-know-->
-                <!--source: https://www.paypal.com/us/smarthelp/article/FAQ4399-->
-                <p style="padding:20px;">Cryptocurrency (or “crypto”) is a digital currency that is bought using real currency, and can be used to purchase goods and services. <br> <br> There are no governing bodies or central authority regulating the cryptocurrency market. <br> <br> The cryptocurrency market is operational 24/7, 365 days a year.   </p>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./images/Rectangle 26.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./images/Rectangle 26.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./images/Rectangle 26.png" class="d-block w-100" alt="...">
+              </div>
             </div>
-        </section>
+          </div>
     </header>
     <main class="row">
         <section class="asideleft col-4">
             <div class="search">
-                <h3 class="formhead">Search :</h3>
                 <form>
                     <input type="text" class="form-control mb-3 " id="input" aria-describedby="input">
-                    <button type="submit" class="btn btn-primary btnleft " id="searchstock">Submit</button>
+                    <button type="submit" class="btn btn-primary btnleft " id="searchstock"></button>
+                    <button type="submit" class="btn btn-primary btnleft " id="searchstock"></button>
+                    <button type="submit" class="btn btn-primary btnleft " id="searchstock"></button>
+                    <button type="submit" class="btn btn-primary btnleft " id="searchstock"></button>
                 </form>
             </div>
             <h4 class="lastsrch"></h4>
             <div class="news">
+                <h4>News</h4>
+            </div>
+            <div class="trnd">
+                <h4>Trending</h4>
             </div>
         </section>
         <section class="asideright col-7">
-            <div class="searchrlt">
-                <h4>Search Results...</h4>
+            <div class="overview">
+                <h4>Item Overview</h4>
             </div>
-            <div class="rcmd">
+            <div class="mrkt">
+                <h4>Market Statistics</h4>
             </div>
-            <!-- <div><canvas id="myChart" style="width: 950px; height: 300px;"></canvas> </div> -->
+            <div class="exp">
+                <h4>Expert Opinion</h4>
+            </div>
+            <div class="sum">
+                <h4>Summary</h4>
         </section>
     </main>
     <footer>
@@ -68,7 +80,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-    <script src="./script/script.js"></script>
+    <script src="./script/script.s"></script>
 
 </body>
 

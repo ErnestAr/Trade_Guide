@@ -7,34 +7,17 @@
   --whites:#F3F7F6;
   --ease: 0.5s ease;
 }
-body {
-  background-color: var(--whites) ;
-}
+
 
 * {
   /* border: 2px solid black; */
   margin: 0px 0px 0px 0px;
-  border-radius: 10px;
 }
 
-header {
-  border-bottom: var(--pBlue) 3px solid;
-  border-radius: 0px;
-}
-img {
-  display: inline-block;
-  margin-top: 10px;
-  border: 4px solid var(--lightGray);
-  border-radius: 5px;
-  opacity: 0.7;
-  cursor: pointer;
-}
-img:hover {
-  opacity: 1.0;
-}
-h6 {
-  cursor: pointer;
-}
+
+
+
+
 
 a,
 h3,
@@ -44,12 +27,7 @@ p {
 }
 
 
-a:hover {
-  color: var(--pBlue);
-  opacity: 1;
-  border-bottom: 2px solid var(--pBlue);
-  opacity: 1;
-}
+
 
 a {
   margin: 0px 5px 0px 5px;
@@ -82,27 +60,20 @@ canvas {
   margin-bottom: 10px;
 
 }
-.cards {
-  height: 650px;
-}
 
-.asideleft {
-  margin-left: 10px;
-}
 
+
+
+/* Buttons */
 .btn {
   position: absolute;
-  width: 417px;
-  height: 61px;
-  left: 25px;
-  top: 230px;
-  background: var(--mbGreen);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  border: none;
-  opacity: 0.7;
-  font-size: 30px;
-  color: var(--pBlue);
+  width: 44px;
+  height: 37px;
+  left: 383px;
+  top: 20px;
+  background: #9FD8CB;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.27);
+  border: none
 }
 .btn:hover {
   background: var(--mbGreen);
@@ -128,37 +99,26 @@ canvas {
 
 .form-control {
   position: absolute;
-  width: 417px;
-  height: 61px;
-  left: 25px;
-  top: 150px;
-  background: var(--whites);
-  border-radius: 5px;
-  border: none;
+  width: 348px;
+  height: 37px;
+  left: 26px;
+  top: 20px;
+  background: #FFFFFF;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
 
-.formhead {
-  position: absolute;
-  width: 417px;
-  height: 61px;
-  left: 25px;
-  top: 50px;
-  /* background: var(--whites); */
-  text-align: center;
-  border-radius: 5px;
-  border: none;
-  font-size: 50px;
-}
 .navbar {
   height: 80px;
   background-color: var(--azure);
   width: auto;
   border-radius: 0px;
   margin-bottom: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: sticky;
 }
 .navbar a {
   font-family: "Playfair Display SC", serif;
-  font-size: 30px;
+  font-size: 20px;
   height: fit-content;
   --bs-gutter-x: 0px;
   opacity: 0.8;
@@ -170,148 +130,79 @@ canvas {
 }
 
 .search {
+  margin: 0px;
+  margin-left: 10px;
   margin-top: 20px;
   position: relative;
   width: 379px;
-  height: 327px;
+  height: 345px;
   background:  var(--azure);
   width: 479px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.searchrlt {
-  height: 327px;
+.overview {
+  height: 425px;
   margin-top: 20px;
-  width: 950px;
+  width: 1000px;
   background:  var(--azure);
   padding: 10px;
+  margin-left: 0px;
+  margin-right: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+
+.mrkt {
+  height: 425px;
+  margin-top: 10px;
+  width: 1000px;
+  background:  var(--azure);
+  padding: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.exp {
+  height: 425px;
+  margin-top: 10px;
+  width: 1000px;
+  background:  var(--azure);
+  padding: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sum {
+  height: 260px;
+  margin-top: 10px;
+  width: 1000px;
+  background:  var(--azure);
+  padding: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px;
+}
+
+
 .news {
-  margin-top: 20px;
+  margin-top: 10px;
   width: 479px;
   padding: 5px 10px 10px 10px;
-  height: fit-content;
+  height: 740px;
   background:  var(--azure);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 10px;
+  
   
 }
 
-.rcmd {
-  margin-top: 20px;
-  width: 950px;
-  padding: 5px;
-  height: fit-content;
-  background:  var(--azure);
-}
-
-/* Cards */
-.cards h3 {
-  text-align: center;
+.trnd {
   margin-top: 10px;
-  background-color: var(--azure);
-  margin-bottom: 15px;
-  height: fit-content;
-  vertical-align: middle;
-  font-size: 30px;
-  padding-bottom: 5px;
-  width: auto;
-  margin-left: 3%;
-  margin-right: 3%;
-  transition: 0.5s ease;
+  width: 479px;
+  padding: 5px 10px 10px 10px;
+  height: 460px;
+  background:  var(--azure);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 10px;
 }
-.cards p {
-  background-color: var(--azure);
-  text-align: center;
-  height: 420px;
-  padding-top: 10px;
-  transition: 0.5s ease;
-}
-/* Stock card */
-.stockcard {
-  width: 377px;
-  height: 500px;
-  background: var(--lightGray);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  margin: 20px 10px 0px 10px;
-  opacity: 0.6;
-  transition: 0.5s ease;
-  cursor: pointer;
-}
-
-.stockcard:hover {
-  opacity: 1;
-  background-color: var(--mbGreen);
-}
-
-.stockcardlg {
-  width: 464px;
-  height: 573px;
-  margin: 20px 10px 0px 10px;
-  background:  var(--lightGray);
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  transition: var(--ease);
-  cursor: pointer;
-}
-.stockcardlg h3 {
-  font-size: 60px;
-  height: fit-content;
-  width: auto;
-  margin-left: 3%;
-  margin-right: 3%;
-  transition: var(--ease);
-}
-
-.stockcardlg p {
-  font-size: larger;
-  height: 450px;
-  transition: var(--ease);
-}
-
-/* Crypto card */
-.cryptocard {
-  opacity: 0.6;
-  width: 377px;
-  height: 500px;
-  background: var(--lightGray);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  margin: 20px 10px 0px 10px;
-  transition: var(--ease);
-  cursor: pointer;
-}
-
-.cryptocard:hover {
-  opacity: 1;
-  background-color: var(--mbGreen);
-}
-
-.cryptocardlg {
-  width: 464px;
-  height: 573px;
-  margin: 20px 10px 0px 10px;
-  background: var(--lightGray);
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  transition: var(--ease);
-  cursor: pointer;
-}
-
-.cryptocardlg h3 {
-  font-size: 60px;
-  width: auto;
-  margin-left: 3%;
-  margin-right: 3%;
-  height: fit-content;
-  transition: var(--ease);
-}
-
-.cryptocardlg p {
-  font-size: larger;
-  height: 450px;
-  transition: var(--ease);
-}
-
 .inline {
   display: inline;
 }
@@ -327,11 +218,11 @@ canvas {
   border-radius: 0px;
 }
 
-.lastsrch {
-  height: fit-content;
-  background-color: var(--azure);
-  margin-top: 10px;
-  margin-bottom: 5px;
-  text-align: center;
-  width: 479px;
+
+.row {
+  --bs-gutter-x: 0px
+}
+
+.carousel {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
