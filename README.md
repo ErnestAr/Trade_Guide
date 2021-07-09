@@ -1,27 +1,27 @@
-# Trade_Guide
- Trading Guide for Stocks and Crypto
- ## Deployed Website Link:
- https://ernestar.github.io/Trade_Guide/
- 
- ## Website's Functionality:
- 1. User presented with choice of two mainstream investment options crypto and stock.
- 2. When Stock option  is selected, page displays trending news using Gnews API and Recommendations from Yahoo Finance API.
- 3. When one of the recommendations is clicked of search input entered, webpage gives last month's price chart for the item, as well as 
-description, current price and a home page link of the company.
- 4.  When Crypto option is selected, page displays trending news using Gnews API and Recommendations from CoinGecko API.
- 5. When one of the recommendations is clicked of search input entered, webpage gives last month's price chart for the item, as well as 
-description, current price and a home page link of the cryptocurrency, and creation date.
-6. News section provides links to the source of each article.
-7. User is presented with recent search results, depending on chosen layout(crypto,Stock)
-8. If user enters unknown item or api is not available, correlating section will display "please try later" text.
-9. About page provides user with information about the team who worked on the project and contact information.
- 
-## Development Wireframe
+# Trade Guide
+----
+<a href="https://img.shields.io/badge/License-MIT-brightgreen"><img src="https://img.shields.io/badge/License-MIT-brightgreen"></a>
+
+## Table of Contents
+- [Description](#description)
+- [Development Wireframe](#development-wireframe)
+- [Deployed Application](#deployed-application)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Application functionality](#application-functionality)
+- [Contribution](#contribution)
+- [Contact Information](#contact-information)
+
+### Description
+"Trade Guide" is a web application with primary target audience of begginer investors who need help choosing the right investment opportunities. The app uses advanced finance API providers to give the user neccessary information about available stock options and crypto options, making the decision to invest easier. It summarises the most useful information and provides access to other resourses for user to explore.
+
+## Development wireframe
 ![image](https://user-images.githubusercontent.com/82740498/120944561-2b498580-c703-11eb-9bb9-8a5a7a690257.png)
 
+### Deployed Application:
+ https://ernestar.github.io/Trade_Guide/
 
- 
- ## Website's Screenshots:
+### Screenshots
  ![image](https://user-images.githubusercontent.com/82740498/120940316-a3f01800-c6ea-11eb-8a48-252b386589a3.png)
 ![image](https://user-images.githubusercontent.com/82740498/120940324-b36f6100-c6ea-11eb-917b-4897a543ee8b.png)
 ![image](https://user-images.githubusercontent.com/82740498/120940337-c5510400-c6ea-11eb-9bfd-4b38767bf509.png)
@@ -31,7 +31,8 @@ description, current price and a home page link of the cryptocurrency, and creat
 ![image](https://user-images.githubusercontent.com/82740498/120940383-00ebce00-c6eb-11eb-99d1-f4a9aab9c660.png)
 
 
-## Languages and resources
+
+### Technologies
 1. JavaScript
 2. HTML
 3. CSS
@@ -44,13 +45,25 @@ description, current price and a home page link of the cryptocurrency, and creat
 10. CoinGeko API
 11. Yahoo Finance API
 12. GNews API
-## Collaborations:
-AnaMolly, kcrawford101
-## License:
-Copyright <2021> <ErnestAr, AnaMolly, kcrawford101>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ ## Application functionality:
+ 1. User presented with choice of two mainstream investment options crypto and stock.
+ 2. When Stock option  is selected, page displays trending news using Gnews API and Recommendations from Yahoo Finance API.
+ 3. When one of the recommendations is clicked of search input entered, webpage gives last month's price chart for the item, as well as 
+description, current price and a home page link of the company.
+ 4.  When Crypto option is selected, page displays trending news using Gnews API and Recommendations from CoinGecko API.
+ 5. When one of the recommendations is clicked of search input entered, webpage gives last month's price chart for the item, as well as 
+description, current price and a home page link of the cryptocurrency, and creation date.
+6. News section provides links to the source of each article.
+7. User is presented with recent search results, depending on chosen layout(crypto,Stock)
+8. If user enters unknown item or api is not available, correlating section will display "please try later" text.
+9. About page provides user with information about the team who worked on the project and contact information.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+### Contribution
+If you would like to contribute to this project, our contact information can be found at the bottom of this file
+
+### Contact-Information
+* [Ernest Arutiunian](https://github.com/ErnestAr)
+* [Analia Mohamdally](https://github.com/AnaMolly)
+* [Kevin Crawford](https://github.com/kcrawford101)
