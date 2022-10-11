@@ -19,7 +19,7 @@
 ![image](https://user-images.githubusercontent.com/82740498/120944561-2b498580-c703-11eb-9bb9-8a5a7a690257.png)
 
 ### Deployed Application:
- https://ernestar.github.io/Trade_Guide/
+ https://trade-guide.netlify.app/
 
 ### Screenshots
  ![image](https://user-images.githubusercontent.com/82740498/120940316-a3f01800-c6ea-11eb-8a48-252b386589a3.png)
